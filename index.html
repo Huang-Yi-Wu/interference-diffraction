@@ -1,0 +1,1507 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="高一物理「干涉與繞射」翻頁式互動教材：概念、動畫、互動模擬、學習單、評量與延伸學習。">
+<title>干涉與繞射 翻頁教材</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="book.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="bar">
+    <button type="button" class="brand" id="brand" title="回到目錄">干涉與繞射</button>
+    <span class="where" id="where"></span>
+    <button type="button" class="ibtn" id="tocBtn" aria-haspopup="dialog">目錄</button>
+    <div class="mode" role="group" aria-label="檢視模式">
+      <button type="button" data-mode="student" aria-pressed="true">學生</button>
+      <button type="button" data-mode="teacher" aria-pressed="false">教師</button>
+    </div>
+  </header>
+
+  <div class="stage"><div class="book" id="book">
+
+<!-- ================= 封面 ================= -->
+<section class="page" id="p-cover" data-ch="0" data-title="封面" data-notoc tabindex="-1">
+  <div class="cover">
+    <canvas id="coverCv" aria-hidden="true"></canvas>
+    <div class="cv-in">
+      <span class="sub">高一必修物理 · 3 節課 · 互動翻頁教材</span>
+      <h1>干涉與繞射</h1>
+      <p>雷射穿過兩條細縫，屏幕上出現的不是兩條亮線，而是一整排明暗相間的條紋。這本教材帶你從繩波一路走到光，找出能解釋它的規則。</p>
+      <div class="row">
+        <button type="button" class="btn" data-go="p-toc">開始閱讀</button>
+        <button type="button" class="btn ghost" data-go="p-guide">使用說明</button>
+        <button type="button" class="btn ghost" id="resume" hidden>繼續上次進度</button>
+      </div>
+      <p style="font-size:.8rem;color:#9aa6b6">封面圖：依波的疊加計算生成的雙狹縫亮度示意（模型）。翻頁：按「下一頁」、鍵盤 ← →，或在手機上左右滑動。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 目錄 ================= -->
+<section class="page" id="p-toc" data-ch="0" data-title="目錄" data-notoc tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">Contents</span><h2>目錄</h2><p class="lede">點選任一頁名即可跳到該頁。也可以隨時按上方「目錄」打開完整頁碼清單。</p></div>
+    <div class="chaps">
+      <div class="chap"><span class="k">導覽</span><h3>開始之前</h3><ol data-toc-ch="0"></ol></div>
+      <div class="chap"><span class="k">第 1 節 · 50 分鐘</span><h3>波的疊加與水波干涉</h3><ol data-toc-ch="1"></ol></div>
+      <div class="chap"><span class="k">第 2 節 · 50 分鐘</span><h3>光的雙狹縫干涉</h3><ol data-toc-ch="2"></ol></div>
+      <div class="chap"><span class="k">第 3 節 · 50 分鐘</span><h3>光的繞射與生活應用</h3><ol data-toc-ch="3"></ol></div>
+      <div class="chap"><span class="k">課後</span><h3>總學習單・總評量・延伸</h3><ol data-toc-ch="4"></ol></div>
+      <div class="chap t-only"><span class="k">教師</span><h3>教師專區</h3><ol data-toc-ch="5"></ol></div>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 使用說明與單元導覽 ================= -->
+<section class="page" id="p-guide" data-ch="0" data-title="單元導覽與使用說明" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">單元導覽</span><h2>這個單元要回答的問題</h2></div>
+    <p class="keyline">直進模型能解釋狹縫後的亮暗分布嗎？波的疊加如何解釋？<span class="src">02</span></p>
+    <div class="rail" aria-label="學習路徑">
+      <div><b>第1節</b>繩波疊加</div><div><b>第1節</b>水波干涉</div><div class="r2"><b>第2節</b>雙狹縫干涉</div><div class="r3"><b>第3節</b>單狹縫與薄膜</div><div class="r3"><b>第3節</b>波動性論證</div>
+    </div>
+    <p>每一步都用上一步建立的規則：先在看得見起伏的繩波、水波上建立「疊加」，再把同一條規則帶到看不見振動、只看得見亮暗的光。<span class="src">01</span><span class="src">02</span></p>
+    <h3>學完後你能做到</h3>
+    <ol style="margin:0;padding-left:1.3rem">
+      <li>以疊加解釋繩波與水波。</li>
+      <li>解釋雙狹縫的亮紋與暗紋。</li>
+      <li>比較干涉、繞射與薄膜反射。</li>
+      <li>引用光學證據完成論證，並說明波動模型的界限。</li>
+    </ol>
+    <div class="cond"><b>先備知識</b>　知道波會傳播；能區分位移與振幅，理解波長、頻率及週期；學過光的直進、反射與折射。<b>範圍</b>　以定性解釋為主，不推導條紋位置與膜厚公式。<span class="src">01</span></div>
+    <h3>頁面上的標記</h3>
+    <div class="legend">
+      <span><span class="tag ev">實拍證據</span> 真實的實驗照片或觀察</span>
+      <span><span class="tag md">模型</span> 用來解釋的圖、動畫、模擬</span>
+      <span><span class="tag gq">引導提問</span> 常見想法的檢查站</span>
+      <span><span class="tag ws">學習單</span> 你的作答會收進「總學習單」</span>
+    </div>
+    <h3>怎麼操作</h3>
+    <div class="grid2">
+      <div class="box"><b>翻頁</b><p class="msg">按下方「下一頁／上一頁」、鍵盤 ← →，或在手機上左右滑動。下方選單可直接跳頁。</p></div>
+      <div class="box"><b>作答</b><p class="msg">打字或勾選後會自動暫存在這台裝置，換頁、重新整理都不會消失。最後在「總學習單」一次檢查，並下載 JSON 或 CSV 交給老師。</p></div>
+      <div class="box"><b>照片與模擬</b><p class="msg">點任何實拍照片可放大，再點一下或按 Esc 關閉。模擬可拖曳滑桿、按播放／暫停，所有計算都在你的裝置上進行，不需網路。</p></div>
+      <div class="box"><b>學生／教師</b><p class="msg">右上角切換。教師模式會顯示每頁的「教師提示」與教師專區（教案、題卡、細目表、素材、困難引導、文件對照）。</p></div>
+    </div>
+    <div class="box">
+      <label class="fl" for="stuCode">學生代碼（作答紀錄以代碼標示，不需填姓名）<span class="src">02</span></label>
+      <input type="text" id="stuCode" placeholder="例如 S10203" autocomplete="off">
+    </div>
+    <details class="tnote"><summary>教師提示　本教材如何由 10 份文件組成</summary><div class="tb">
+      <p>骨架是<b>文件02</b>的三節課（設計理念：先預測，再觀察，以證據修正解釋；由水波類比遷移至光）。每節依教案時間軸展開，嵌入 01 的知識節點正文、03 的學習單、05 的題卡、07A／07B 的素材與腳本、08 的數位活動、10 的提示階梯；06 用於課前、各節小測與總評量；04 放在延伸。頁面上的小方框（如 <span class="src">01</span>）標示出處。完整對照見「教師專區 › 文件對照」。</p>
+      <p>課綱：學習表現 tr-Ⅴc-1、tm-Ⅴc-1、pc-Ⅴc-2；學習內容 PKa-Ⅴc-3、PKa-Ⅴc-5、PKa-Ⅴc-6。實施條件：一般教室、兩人一機、個別作答；AI 與實體示範選用。本教材以「提示階梯」離線替代 AI 追問（AI 僅追問、不代答）。</p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 課前暖身 ================= -->
+<section class="page" id="p-warmup" data-ch="0" data-title="課前暖身：先備快檢" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">課前</span><h2>課前暖身：先備快檢</h2>
+      <p class="lede">正式上課前，老師會另外發一份前測（約 25～30 分鐘、14 題，不計分）。這裡先用三題檢查你需要的舊知識，答錯也沒關係。<span class="src">06 前測</span></p></div>
+    <div class="quiz" data-quiz="warm">
+      <div class="qi" data-ans="b" data-pts="1" data-exp="振幅是週期振動中偏離平衡位置的最大程度；位移是某一時刻偏離平衡位置的程度。" data-review="p-l1-amp">
+        <p class="stem">1. 繩上某一點上下振動。下列何者是「振幅」？</p>
+        <label class="q-opt"><input value="a">這一刻它偏離平衡位置多少</label>
+        <label class="q-opt"><input value="b">振動過程中偏離平衡位置的最大程度</label>
+        <label class="q-opt"><input value="c">它一秒鐘振動幾次</label>
+        <div class="qfb"></div></div>
+      <div class="qi" data-ans="c" data-pts="1" data-exp="波長是相鄰兩個波峰（或相同振動狀態）之間的距離。">
+        <p class="stem">2. 「波長」指的是：</p>
+        <label class="q-opt"><input value="a">波峰到平衡位置的高度</label>
+        <label class="q-opt"><input value="b">振動一次所需的時間</label>
+        <label class="q-opt"><input value="c">相鄰兩個波峰之間的距離</label>
+        <div class="qfb"></div></div>
+      <div class="qi" data-ans="a" data-pts="1" data-exp="依直進模型，光沿直線前進，屏幕上應只出現開口的投影。這個預測會在第2節接受檢驗。">
+        <p class="stem">3. 如果光只會沿直線前進，一束平行光通過一條窄縫後，屏幕上應該看到什麼？</p>
+        <label class="q-opt"><input value="a">一條和縫差不多形狀的亮帶（縫的投影）</label>
+        <label class="q-opt"><input value="b">整片均勻的亮光</label>
+        <label class="q-opt"><input value="c">許多明暗相間的條紋</label>
+        <div class="qfb"></div></div>
+      <div class="row"><button type="button" class="btn" data-check>檢查答案</button><button type="button" class="btn ghost" data-reset>重新作答</button></div>
+      <div data-score></div>
+    </div>
+    <details class="tnote"><summary>教師提示　前測診斷重點</summary><div class="tb">
+      <p>前測（14 題／30 分）針對疊加、初始光模型與證據來源，用來辨識先備概念與迷思（碰撞、相消等）。「運用疊加並說明通過後狀態」與「判讀屏幕資料並比較預測」各占 23.3%，分別是第1、2節的起點。可將前測結果對照文件10 的五項困難，預先決定各節的時間分配。細目表見教師專區。<span class="src">02</span><span class="src">06</span><span class="src">10</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 第1節 ================= -->
+<section class="page" id="p-l1-intro" data-ch="1" data-title="1-0 本節導入：兩個脈衝相遇" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 知識節點 01</span><h2>波的疊加與水波干涉</h2></div>
+    <div class="rail here" aria-label="學習路徑，目前在第1節"><div class="on"><b>第1節</b>繩波疊加</div><div class="on"><b>第1節</b>水波干涉</div><div class="r2"><b>第2節</b>雙狹縫干涉</div><div class="r3"><b>第3節</b>單狹縫與薄膜</div><div class="r3"><b>第3節</b>波動性論證</div></div>
+    <div class="bridge">
+      <span class="bl">從哪裡來</span><p>你已經知道波會傳播，也知道位移、振幅、波長、週期的意思。<span class="src">01 先備</span></p>
+      <span class="bl">這節要做</span><p>用繩波建立「疊加」規則，再用它解釋兩個水波源形成的穩定圖樣。這條規則是後面兩節解釋光的唯一工具。<span class="src">02</span></p>
+      <span class="bl">核心問題</span><p><b>波如何疊加？</b></p>
+    </div>
+    <p>一條長繩上，A 從左邊、B 從右邊各送出一個一樣的向上脈衝，兩者相向前進。先別往下翻，寫下你的預測。</p>
+    <figure><img class="white" src="img/shot01.png" alt="分波 A 向右、B 向左，兩個向上脈衝分置左右" style="max-width:30rem"><figcaption><span class="tag md">模型</span> 相遇前。上方為分波 A（細實線）與 B（虛線），下方為繩子實際形狀。<span class="src">07B</span></figcaption></figure>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q1</span>兩個脈衝相遇之後會怎樣？</div>
+      <div class="opts">
+        <label><input type="radio" name="l1q1" value="互相反彈，往回走" data-q="l1q1" data-lesson="1" data-prompt="第1節 Q1 預測：兩脈衝相遇後會怎樣？">互相反彈，往回走</label>
+        <label><input type="radio" name="l1q1" value="穿過彼此，各自繼續前進" data-q="l1q1">穿過彼此，各自繼續前進</label>
+        <label><input type="radio" name="l1q1" value="一起消失" data-q="l1q1">一起消失</label>
+        <label><input type="radio" name="l1q1" value="合成一個，不再分開" data-q="l1q1">合成一個，不再分開</label>
+      </div>
+      <label class="fl" for="l1q1r">我這樣預測，因為：</label>
+      <textarea id="l1q1r" data-q="l1q1r" data-lesson="1" data-prompt="第1節 Q1 理由"></textarea>
+      <p class="msg">預測不以對錯計分。下一頁的動畫看完後，再回來比較。</p>
+    </div>
+    <details class="tnote"><summary>教師提示　第1節流程（0–22 分：繩波）</summary><div class="tb">
+      <div class="tw"><table><thead><tr><th>時間</th><th>教師活動與提問</th><th>學生活動</th><th>評量證據</th></tr></thead><tbody>
+        <tr><td class="c">0–22</td><td>先畫脈衝，再看重疊與通過。問：相消後波消失嗎？</td><td>Q1 預測、Q2 畫圖；Q3 用疊加解釋</td><td>位移相加；通過後仍傳播</td></tr>
+        <tr><td class="c">22–42</td><td>先預測 A、B，再看一週期。問：亮處一定是腹線嗎？</td><td>Q4 預測；Q5 選點；Q6 比較</td><td>依一段時間的振幅判讀</td></tr>
+        <tr><td class="c">42–50</td><td>命名腹線、節線，再反思。問：哪項觀察讓你改變？</td><td>Q7 水波 CER；Q8 想法改變</td><td>觀察支持解釋；指出修訂理由</td></tr>
+      </tbody></table></div>
+      <p>第1節學習單原檔不在資料夾內；Q1–Q8 依文件02 所列題號與任務重建，正式使用時可替換為原題幹。<span class="src">02</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-anim" data-ch="1" data-title="1-1 動畫：兩個脈衝的相遇" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 動畫</span><h2>動畫：兩個脈衝的相遇</h2><p class="lede">36 秒動畫，包含兩個案例：同向脈衝與等大反向脈衝。注意中央 P 點的數值，以及相遇「之後」發生什麼事。</p></div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">理想線性介質中的模型示意。上區為分波（輔助表示），下區為繩子的合成形狀。<span class="src">07B 動畫影片需求腳本</span></span></div>
+      <canvas id="animCv" data-aspect="0.5" aria-label="兩個脈衝相遇的動畫"></canvas>
+      <div class="caption-bar" id="animCap" aria-live="polite">按「播放」開始。</div>
+      <input type="range" class="scrub" id="animScrub" min="0" max="36" step="0.1" value="0" aria-label="動畫時間軸">
+      <div class="row">
+        <button type="button" class="btn" id="animPlay">播放</button>
+        <button type="button" class="btn ghost" id="animPause">暫停</button>
+        <button type="button" class="btn ghost" id="animReplay">從頭播放</button>
+        <span class="msg mono" id="animTime">0.0 / 36 秒</span>
+      </div>
+      <div class="row"><span class="fl">跳到鏡頭：</span>
+        <button type="button" class="btn ghost sm" data-shot="0">01 相向</button>
+        <button type="button" class="btn ghost sm" data-shot="6">02 同向重疊</button>
+        <button type="button" class="btn ghost sm" data-shot="14">03 通過</button>
+        <button type="button" class="btn ghost sm" data-shot="20">04 反向重疊</button>
+        <button type="button" class="btn ghost sm" data-shot="28">05 之後</button>
+      </div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q2</span>描述兩個案例的三個時刻：相遇前、完全重疊、通過後。</div>
+      <textarea data-q="l1q2" data-lesson="1" data-prompt="第1節 Q2 三個時刻的繩形描述" placeholder="同向：相遇前……；完全重疊……；通過後……&#10;反向：……"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　動畫設計重點</summary><div class="tb">
+      <p>依 07B 分鏡製作：01（0–6 秒）相向、02（6–14 秒）同向重疊定格並依序顯示 +1、+1、+2、03（14–20 秒）通過、04（20–28 秒）先標「新案例」再播等大反向、05（28–36 秒）平線重新分成兩脈衝並停留總結文字。旁白即字幕，無配樂。</p>
+      <p>容易誤解處：相消後立即切走會被誤認成永久消失，因此連續播到兩脈衝通過；停格標註「教學定格」，避免被理解成波真的停止。<span class="src">07B</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-concept" data-ch="1" data-title="1-2 主要概念：疊加原理" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 主要概念</span><h2>疊加原理</h2></div>
+    <p class="keyline">兩列波在同一位置、同一時刻相遇時，該處的合位移等於各波位移的代數和。</p>
+    <div class="def"><dl>
+      <dt>位移</dt><dd>某一時刻，介質偏離平衡位置的程度（有正負號，向上為正）。</dd>
+      <dt>振幅</dt><dd>週期振動中偏離平衡位置的最大程度。</dd>
+      <dt>疊加原理</dt><dd>在理想線性介質中，同一位置、同一時刻的合位移＝各波位移相加。</dd>
+      <dt>通過後</dt><dd>相遇結束後，兩列脈衝仍各自沿原方向傳播，形狀不變。</dd>
+    </dl></div>
+    <div class="reading">
+      <p>兩列繩波脈衝相遇時，會暫時在同一段繩上重疊。在理想線性介質中，該處的合位移等於兩列波各自造成的位移相加。相遇結束後，兩列脈衝仍各自沿原方向傳播。<span class="src">01 節點01</span></p>
+    </div>
+    <figure><img class="white" src="img/superposition-compare.png" alt="兩種完全重疊的比較：同向時 P 點 +1+1=+2，反向時 +1−1=0"><figcaption><span class="tag md">模型</span> 兩種完全重疊的比較。同向：+1＋1＝+2；等大反向：+1－1＝0。兩欄共用相同刻度，上下分區避免把分波誤認成三條繩子。<span class="src">07B 圖片需求腳本</span></figcaption></figure>
+    <div class="cond"><b>成立條件與易混淆處</b>　疊加採理想線性近似。「位移相消」只描述那一瞬間，不要說成總能量消失。<span class="src">01</span></div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-sim" data-ch="1" data-title="1-3 互動模擬：繩波疊加" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 互動模擬</span><h2>互動模擬：繩波疊加</h2><p class="lede">自己調整兩個脈衝的高度（可以是負的，代表向下），播放後看 P 點的數值。</p></div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">分波線不是三條實體繩子；負值表示脈衝向下，不稱「負振幅」。<span class="src">07B 模擬需求腳本</span></span></div>
+      <canvas id="supCv" data-aspect="0.5" aria-label="繩波疊加模擬"></canvas>
+      <div class="readout" id="supRead">P 點：</div>
+      <div class="ctrls">
+        <label for="hA">脈衝高度 A（含正負號）<span class="mono" id="hAv">+1.0</span><input type="range" id="hA" min="-1.5" max="1.5" step="0.1" value="1"></label>
+        <label for="hB">脈衝高度 B（含正負號）<span class="mono" id="hBv">+1.0</span><input type="range" id="hB" min="-1.5" max="1.5" step="0.1" value="1"></label>
+      </div>
+      <div class="row">
+        <button type="button" class="btn ghost" id="caseSame">同向案例</button>
+        <button type="button" class="btn ghost" id="caseOpp">反向案例</button>
+        <button type="button" class="btn" id="supPlay">播放</button>
+        <button type="button" class="btn ghost" id="supPause">暫停</button>
+        <button type="button" class="btn ghost" id="supReset">重設</button>
+      </div>
+      <p class="msg">調整高度或切換案例會回到起始畫面。</p>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q3</span>用「疊加」解釋：反向案例完全重疊時，繩子為什麼是平的？之後又發生什麼？</div>
+      <textarea data-q="l1q3" data-lesson="1" data-prompt="第1節 Q3 用疊加解釋反向重疊"></textarea>
+      <p class="msg">試試看：A＝+1.0、B＝－0.5 時，P 點完全重疊的合成值是多少？</p>
+    </div>
+    <details class="tnote"><summary>教師提示　模擬規格</summary><div class="tb">
+      <p>依 07B：脈衝全寬為畫面 20%，波速每秒 5% 畫面寬，起始 A 25%／B 75%，位移刻度固定 −3～+3（避免自動縮放造成誤判），P 在 50%；視窗外不反彈。07B 記載這些設定「尚未實作」，本頁為依腳本完成的實作，可逐項核對。<span class="src">07B</span><span class="src">07A</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-check" data-ch="1" data-title="1-4 引導提問：相消後波去哪了？" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 迷思檢查站</span><h2>相消之後，波去哪了？</h2><p class="lede">下面是同學們常有的想法。選出你同意的，看看說明。</p></div>
+    <div class="guide" data-guide="g1">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">等大反向的兩個脈衝完全重疊時，繩子看起來是平的。這時候兩個波……</p>
+      <div class="gopts">
+        <button data-fb="繩子平只是「這一瞬間」各點的位移相加為零。重疊結束後，兩個脈衝又各自出現並沿原方向前進，波沒有消失。">互相抵消，永久消失了</button>
+        <button data-ok data-fb="對。平的繩形只描述那一瞬間的位移；之後兩個脈衝仍各自沿原方向傳播（動畫鏡頭 05）。">只是那一瞬間位移相消，之後各自繼續前進</button>
+        <button data-fb="能量並沒有消失。那一瞬間繩子仍在運動，所以之後兩個脈衝才能重新出現。應該說「位移相消」，而不是「能量消失」。">能量消失了，所以繩子才變平</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="guide" data-guide="g2">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">兩個脈衝相遇，會不會像兩顆球相撞一樣反彈回去？</p>
+      <div class="gopts">
+        <button data-fb="追蹤同一個脈衝（例如 A）：相遇前在左、重疊時在中央、通過後跑到右邊，方向沒有改變。波不是物體，相遇時是位移相加，不是碰撞。">會，因為兩個波撞在一起</button>
+        <button data-ok data-fb="對。在理想線性介質中，A 通過後仍向右、B 仍向左，形狀不變。">不會，它們穿過彼此，各自沿原方向前進</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+      <div class="hints" data-hints='[["L1 釐清想法","你預測脈衝會反彈，是根據什麼想法？","對照：Q1 預測與理由"],["L2 回看證據","在動畫或模擬裡追蹤同一個脈衝的相遇前、重疊與通過後；它的傳播方向有改變嗎？","對照：繩波模擬、Q2 三階段描述"],["L3 連結說明","依 Q2 的觀察，你會如何修訂「相遇後會反彈」？","對照：Q1 初稿、Q2 觀察紀錄"]]' data-src="10 範例2"></div>
+    </div>
+    <div class="box">
+      <p>回到 <a href="#p-l1-intro" data-go="p-l1-intro">Q1 的預測</a>：看完動畫和模擬，你的預測要保留還是修正？可以直接回去改，修改理由寫在本節最後的 Q8。</p>
+    </div>
+    <details class="tnote"><summary>教師提示　對應的學習困難</summary><div class="tb">
+      <div class="tw"><table><thead><tr><th>困難</th><th>學生表現</th><th>引導</th><th>改善判準</th></tr></thead><tbody>
+        <tr><td>波像物體碰撞</td><td>「兩個波撞到後，會一起彈回去。」</td><td>追蹤同一脈衝，比較相遇、重疊及通過後。</td><td>能指出通過後仍沿原方向傳播。</td></tr></tbody></table></div>
+      <p>提示階梯為文件10「範例2 波相遇會反彈」，一次給一層。題卡1（文件05）的待支持表現：「說成互撞反彈、永久合併或消失，或把相消解釋為能量不存在」。<span class="src">10</span><span class="src">05</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-amp" data-ch="1" data-title="1-5 建設性與破壞性干涉" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 主要概念</span><h2>建設性與破壞性干涉</h2><p class="lede">脈衝只經過一次。如果兩列波持續在同一個位置振動，該處會怎樣？</p></div>
+    <div class="def"><dl>
+      <dt>完全建設性干涉</dt><dd>同一位置的兩列同頻率週期波振動步調相同（同相），合振幅最大。</dd>
+      <dt>完全破壞性干涉</dt><dd>振幅相等且振動步調恰好相反（反相），合振幅為零。</dd>
+      <dt>相位</dt><dd>描述週期振動進行到哪個階段。</dd>
+    </dl></div>
+    <div class="reading">
+      <p>對同一位置的兩列同頻率週期波而言，若振動步調相同，合振幅最大，稱為完全建設性干涉；若振幅相等且振動步調恰好相反，合振幅為零，稱為完全破壞性干涉。</p>
+      <p>位移是某一時刻偏離平衡位置的程度；振幅則是週期振動中偏離平衡位置的最大程度。某一刻位移為零，不能據此認定振幅為零。<span class="src">01 節點01</span></p>
+    </div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">同一位置的兩列振動與合成振動。虛線是合振幅。</span></div>
+      <canvas id="oscCv" data-aspect="0.55" aria-label="同一位置兩列振動與其合成"></canvas>
+      <div class="readout" id="oscRead"></div>
+      <div class="ctrls">
+        <label for="a1">振動 1 的振幅 <span class="mono" id="a1v">1.0</span><input type="range" id="a1" min="0" max="1.5" step="0.1" value="1"></label>
+        <label for="a2">振動 2 的振幅 <span class="mono" id="a2v">1.0</span><input type="range" id="a2" min="0" max="1.5" step="0.1" value="1"></label>
+        <label for="phi">兩者的相位差 <span class="mono" id="phiv">0°</span><input type="range" id="phi" min="0" max="360" step="15" value="0"></label>
+      </div>
+      <div class="row">
+        <button type="button" class="btn ghost" id="phSame">同相</button>
+        <button type="button" class="btn ghost" id="phOpp">反相</button>
+        <button type="button" class="btn" id="oscPlay">播放</button>
+        <button type="button" class="btn ghost" id="oscPause">暫停</button>
+        <button type="button" class="btn ghost" id="oscZero">停在位移為 0 的瞬間</button>
+      </div>
+    </div>
+    <div class="guide" data-guide="g3">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">按「停在位移為 0 的瞬間」。這一刻合成位移是 0，所以這個位置的振幅是 0？</p>
+      <div class="gopts">
+        <button data-fb="位移為 0 只代表這一刻剛好經過平衡位置。看虛線：合振幅仍然不是 0。判斷振幅要看完整週期裡的最大位移。">是，位移為 0 就表示振幅為 0</button>
+        <button data-ok data-fb="對。振幅要看一段時間內的最大位移。只有「反相且兩振幅相等」時，合振幅才會一直是 0。">不一定，要看一整個週期的最大位移</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="cond"><b>試試看</b>　設成反相，再把振動 2 的振幅改成 0.6。合振幅還是 0 嗎？這說明「完全相消」需要什麼條件？<span class="src">01</span><span class="src">10</span></div>
+    <details class="tnote"><summary>教師提示　位移與振幅</summary><div class="tb"><p>文件10 困難「位移等於振幅」：學生說「這一刻是零，所以振幅是零」。引導：固定同一位置，觀察完整週期；比較瞬時位移與最大位移。改善判準：能以完整週期的最大位移判斷振幅。本頁模擬即為此設計的對照材料。合振幅以 √(A₁²＋A₂²＋2A₁A₂cosφ) 計算，僅供教師參考，不要求學生計算。<span class="src">10</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-water" data-ch="1" data-title="1-6 互動模擬：水波干涉" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 互動模擬</span><h2>兩個水波源：哪裡起伏最大？</h2></div>
+    <div class="def"><dl>
+      <dt>同調（相干）波源</dt><dd>頻率相同、相位關係固定的波源。兩個同調波源可形成位置穩定的干涉分布。</dd>
+    </dl></div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q4</span>先別播放。下圖 A 點在兩波源正中間的前方，B 點偏向一側。你預測哪一點在一段時間內起伏比較大？為什麼？</div>
+      <textarea data-q="l1q4" data-lesson="1" data-prompt="第1節 Q4 預測 A、B 哪點起伏大"></textarea>
+    </div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">左圖顏色是「某一瞬間」的水面位移（藍：高於平衡、紅：低於平衡），不是振幅。右側紀錄才看得出一段時間的起伏。點左圖可放置探測點 P。<span class="src">07A 水波模擬</span></span></div>
+      <canvas id="ripCv" data-aspect="0.46" aria-label="雙波源水波干涉俯視模型與位移紀錄"></canvas>
+      <div class="readout" id="ripRead"></div>
+      <div class="ctrls">
+        <label for="ripD">波源間距 <span class="mono" id="ripDv">2.0 λ</span><input type="range" id="ripD" min="1" max="4" step="0.5" value="2"></label>
+        <label for="ripL">波長（相對） <span class="mono" id="ripLv">1.0</span><input type="range" id="ripL" min="0.7" max="1.4" step="0.1" value="1"></label>
+      </div>
+      <div class="row">
+        <button type="button" class="btn" id="ripPlay">播放</button>
+        <button type="button" class="btn ghost" id="ripPause">暫停</button>
+        <button type="button" class="btn ghost tog" id="ripLines" aria-pressed="false">顯示腹線／節線</button>
+      </div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q5</span>看右側紀錄，選出振幅最大與接近不動的位置，寫出判斷依據。</div>
+      <textarea data-q="l1q5" data-lesson="1" data-prompt="第1節 Q5 選點與判斷依據"></textarea>
+      <div class="hd"><span class="qn">Q6</span>和 Q4 的預測比較：哪裡一樣、哪裡不同？</div>
+      <textarea data-q="l1q6" data-lesson="1" data-prompt="第1節 Q6 與預測比較"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　22–42 分</summary><div class="tb"><p>先預測 A、B，再看一週期。問：「亮處一定是腹線嗎？」證據：依一段時間的振幅判讀。題卡2 的預期證據：同一位置在一個週期內的起伏紀錄、選點紀錄；不得只用單一時刻的顏色判斷。原素材「水波的干涉繞射拷貝.html」另有 3D 水面與法拉第波延伸，需 WebGL 與網路。<span class="src">02</span><span class="src">05</span><span class="src">07A</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-lines" data-ch="1" data-title="1-7 腹線與節線" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 主要概念</span><h2>腹線與節線</h2></div>
+    <div class="def"><dl>
+      <dt>腹線</dt><dd>振幅極大的位置連成的線。兩列波在這些位置同相到達。</dd>
+      <dt>節線</dt><dd>振幅極小的位置連成的線。兩列波在這些位置反相到達；兩波振幅相等時才完全相消。</dd>
+    </dl></div>
+    <div class="reading">
+      <p>兩波源同頻率且相位關係固定，所以每個位置的到達相位差保持穩定：同相到達處振幅增大，反相到達處振幅減小。振幅極大或極小的位置連成腹線、節線。<span class="src">05 題卡2</span></p>
+      <p>兩個位置固定、振動關係固定的水波源，可形成位置穩定的干涉分布。局部振幅為零，不代表兩列波永久消失。<span class="src">01</span></p>
+    </div>
+    <div class="guide" data-guide="g4">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">在模擬的俯視圖中，顏色最深的地方就是腹線嗎？</p>
+      <div class="gopts">
+        <button data-fb="俯視圖的顏色只是某一瞬間的位移，下一刻就會變。判斷腹線要看一段時間的起伏（右側紀錄），或打開「顯示腹線／節線」。">是，顏色最深代表起伏最大</button>
+        <button data-ok data-fb="對。單張畫面只顯示瞬間位移；腹線是「一段時間內振幅最大」的位置。">不一定，單一瞬間的顏色不能判斷振幅</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="guide" data-guide="g5">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">腹線和節線是不是像波紋一樣，一圈圈往外移動？</p>
+      <div class="gopts">
+        <button data-fb="向外移動的是波峰、波谷（波前）。腹線和節線是「振幅大小的分布」，位置固定不動。">是，它們跟著波往外跑</button>
+        <button data-ok data-fb="對。腹線與節線的位置由兩波源的距離差決定，波源不變，它們就不動。">不是，它們的位置是固定的</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="guide" data-guide="g6">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">在真實的水槽裡，節線上的水面一定完全靜止嗎？</p>
+      <div class="gopts">
+        <button data-fb="完全相消需要兩列波到達時振幅相等。真實水槽中兩波到達某處時振幅不一定相等，節線附近起伏很小，但不一定為零。">一定完全靜止</button>
+        <button data-ok data-fb="對。理想模型中等振幅才完全相消；真實水槽的節線附近只是起伏很小。">不一定，兩波振幅相等時才會完全相消</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <details class="tnote"><summary>教師提示　題卡2 的常見迷思</summary><div class="tb"><p>只把波峰交點當成建設性干涉；以亮色等同腹線、暗色等同節線；認為節線必定在真實水槽中完全靜止；把腹線或節線畫成向外傳播的圓形波。本頁三個引導提問即對應這些迷思。<span class="src">05</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-cer" data-ch="1" data-title="1-8 學習單：水波 CER" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 學習單</span><h2>寫下你的第一份論證</h2><p class="lede">CER：主張（Claim）、證據（Evidence）、推理（Reasoning）。第2節開頭會回來修訂它。</p></div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q7</span>為什麼兩個水波源會形成位置穩定的腹線與節線？</div>
+      <label class="fl" for="l1q7c">主張</label><textarea id="l1q7c" data-q="l1q7c" data-lesson="1" data-prompt="第1節 Q7 水波 CER：主張"></textarea>
+      <label class="fl" for="l1q7e">證據：引用模擬或紀錄中看到的內容，並註明是模型</label><textarea id="l1q7e" data-q="l1q7e" data-lesson="1" data-prompt="第1節 Q7 水波 CER：證據"></textarea>
+      <label class="fl" for="l1q7r">推理：用疊加把證據連到主張</label><textarea id="l1q7r" data-q="l1q7r" data-lesson="1" data-prompt="第1節 Q7 水波 CER：推理"></textarea>
+      <div class="hd"><span class="qn">Q8</span>今天哪一項觀察讓你改變（或更確定）原來的想法？</div>
+      <textarea data-q="l1q8" data-lesson="1" data-prompt="第1節 Q8 哪項觀察讓你改變想法"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　42–50 分與 CER 判讀</summary><div class="tb"><p>命名腹線、節線，再反思。問：「哪項觀察讓你改變？」證據：觀察支持解釋；指出修訂理由。CER 判斷標準（文件02 第五部分）：主張明確、證據可查，推理連到物理原理。題卡2 達成：能從一段時間的振幅紀錄指出腹線與節線，並用固定到達關係、位移疊加與線狀分布完成因果鏈。<span class="src">02</span><span class="src">05</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l1-quiz" data-ch="1" data-title="1-9 第1節小測與銜接" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 1 節 · 小測</span><h2>第1節小測</h2><p class="lede">四題，檢查本節兩個核心問題。答錯時可依連結回到相關頁複習。<span class="src">05 題卡1、2</span></p></div>
+    <div class="quiz" data-quiz="l1">
+      <div class="qi" data-ans="c" data-pts="1" data-exp="同一位置、同一時刻的位移代數相加：+1＋(−1)＝0。" data-review="p-l1-concept">
+        <p class="stem">1. 繩上 A 脈衝高 +1、B 脈衝高 −1，兩者在 P 點完全重疊的瞬間，P 點的合位移是多少？</p>
+        <label class="q-opt"><input value="a">+2</label><label class="q-opt"><input value="b">+1</label><label class="q-opt"><input value="c">0</label><label class="q-opt"><input value="d">−2</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="1" data-exp="理想線性介質中，兩脈衝重疊後各自沿原方向傳播，形狀不變。" data-review="p-l1-check">
+        <p class="stem">2. 承上題，兩脈衝完全重疊之後，接下來會發生什麼？</p>
+        <label class="q-opt"><input value="a">繩子維持平直，兩脈衝都消失</label><label class="q-opt"><input value="b">兩脈衝重新出現，各自沿原方向前進</label><label class="q-opt"><input value="c">兩脈衝反彈，各自往回走</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="1" data-exp="腹線是一段時間內振幅最大的位置，要看起伏紀錄，不能看單一瞬間的顏色。" data-review="p-l1-lines">
+        <p class="stem">3. 要判斷水面上某點是否位在腹線上，最可靠的方法是：</p>
+        <label class="q-opt"><input value="a">看某一張截圖中該點顏色是否最深</label><label class="q-opt"><input value="b">看該點在一段時間內的起伏是否最大</label><label class="q-opt"><input value="c">看該點是否剛好是兩個波峰的交點</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,c" data-type="multi" data-pts="2" data-exp="穩定的腹線節線需要兩波源同頻率且相位關係固定；它們的位置固定，不是向外移動的波前。" data-review="p-l1-water">
+        <p class="stem">4. 關於兩個同相水波源形成的腹線與節線，下列哪些正確？</p>
+        <label class="q-opt"><input value="a">兩波源同頻率且相位關係固定，圖樣才會穩定</label><label class="q-opt"><input value="b">腹線和節線會一圈圈向外傳播</label><label class="q-opt"><input value="c">節線上兩列波反相到達</label><label class="q-opt"><input value="d">節線上一定沒有任何波到達</label><div class="qfb"></div></div>
+      <div class="row"><button type="button" class="btn" data-check>檢查答案</button><button type="button" class="btn ghost" data-reset>重新作答</button></div>
+      <div data-score></div>
+    </div>
+    <div class="bridge">
+      <span class="bl">帶到下一節</span><p>水波的起伏用眼睛就看得到。光的振動太快，我們只看得到屏幕上<b>亮</b>或<b>暗</b>。第2節要問：同一條疊加規則，能不能解釋光通過兩條窄縫後的屏幕圖樣？<span class="src">01 節點02 銜接</span></p>
+    </div>
+    <details class="tnote"><summary>教師提示　題卡1 成功規準</summary><div class="tb"><div class="lvl"><b>達成</b><span>能畫出或敘述兩組案例的合成結果，明確使用位移代數和，並說明通過後各自傳播。</span><b>發展中</b><span>能判斷增強或減弱，但缺少位置、時刻條件，或未交代通過後狀態。</span><b>待支持</b><span>說成互撞反彈、永久合併或消失，或把相消解釋為能量不存在。</span></div><span class="src">05</span></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 第2節 ================= -->
+<section class="page" id="p-l2-intro" data-ch="2" data-title="2-0 本節導入：從水波到光" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 知識節點 02</span><h2>光的雙狹縫干涉</h2></div>
+    <div class="rail here" aria-label="學習路徑，目前在第2節"><div class="done"><b>第1節</b>繩波疊加</div><div class="done"><b>第1節</b>水波干涉</div><div class="r2 on"><b>第2節</b>雙狹縫干涉</div><div class="r3"><b>第3節</b>單狹縫與薄膜</div><div class="r3"><b>第3節</b>波動性論證</div></div>
+    <div class="bridge">
+      <span class="bl">從哪裡來</span><p>第1節：同一位置的位移相加；兩個相位關係固定的波源會形成穩定的強弱分布。<span class="src">03 先備</span></p>
+      <span class="bl">這節要做</span><p>把「振幅增減」連到「光的明暗」：先預測、再看實拍、再用模型解釋，最後寫出光的 CER。<span class="src">01</span><span class="src">03</span></p>
+      <span class="bl">核心問題</span><p><b>亮暗紋如何形成？</b></p>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span>開場：回頭修訂水波 CER</div>
+      <p>重讀你在第1節 Q7 寫的 CER（下方為你當時的主張）。哪一項觀察真的支持腹線、節線？證據與推理有沒有接上？</p>
+      <div class="ans-ro" data-show="l1q7c">（尚未填寫第1節 Q7）</div>
+      <textarea data-q="l2rev" data-lesson="2" data-prompt="第2節 開場：水波 CER 修訂與理由" placeholder="修訂後的 CER，與修訂理由"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　第2節流程</summary><div class="tb">
+      <div class="tw"><table><thead><tr><th>時間</th><th>教師活動與提問</th><th>學生活動</th><th>本書頁面</th></tr></thead><tbody>
+        <tr><td class="c">0–8</td><td>呈現匿名水波 CER。問：哪項觀察支持腹線、節線？</td><td>修訂第1節 Q7</td><td>2-0</td></tr>
+        <tr><td class="c">8–15</td><td>只呈現裝置，不揭圖樣。問：依直進模型會看到什麼？</td><td>Q1 畫完整屏幕並寫理由</td><td>2-1</td></tr>
+        <tr><td class="c">15–32</td><td>先看實拍，再用模擬比較。問：哪個特徵需要修正？</td><td>Q2 記錄來源與特徵；Q3 比較</td><td>2-2、2-4</td></tr>
+        <tr><td class="c">32–45</td><td>用惠更斯原理解釋 B 亮、D 暗。問：暗處真的沒有光到達嗎？</td><td>完成 Q4</td><td>2-3、2-5、2-6</td></tr>
+        <tr><td class="c">45–50</td><td>問：水波位移與屏幕亮暗相同嗎？</td><td>Q5 比較；Q6 光 CER</td><td>2-7</td></tr>
+      </tbody></table></div>
+      <p>專業說明：惠更斯原理指波面各點可視為次波源，次波包絡形成新波面；兩狹縫受同一入射波驅動，形成同調次波源，電場疊加造成亮暗。屏幕顯示時間平均光強；模型波面不是可見光路。文件03 表頭標「第3節」，但 02、08 與 03 內文皆指第2節，本教材採第2節。<span class="src">02</span><span class="src">03</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-predict" data-ch="2" data-title="2-1 活動01 先預測" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 活動01 · 8 分鐘</span><h2>先預測：屏幕上會看到什麼？</h2></div>
+    <figure>
+      <svg class="white" viewBox="0 0 640 190" role="img" aria-label="雙狹縫實驗空間位置示意：雷射、雙狹縫、屏幕由左到右排列，未畫光線" style="width:100%;height:auto">
+        <rect x="30" y="80" width="90" height="34" rx="4" fill="#d8dde5" stroke="#152030"/><text x="75" y="102" text-anchor="middle" font-size="14" fill="#152030">紅色雷射</text>
+        <rect x="300" y="30" width="10" height="56" fill="#152030"/><rect x="300" y="92" width="10" height="8" fill="#152030"/><rect x="300" y="106" width="10" height="60" fill="#152030"/>
+        <text x="305" y="22" text-anchor="middle" font-size="13" fill="#152030">雙狹縫</text>
+        <rect x="560" y="20" width="14" height="150" fill="#f4f4f4" stroke="#152030"/><text x="567" y="186" text-anchor="middle" font-size="13" fill="#152030">屏幕</text>
+        <line x1="130" y1="150" x2="290" y2="150" stroke="#8a95a5" stroke-dasharray="4 4"/><line x1="320" y1="150" x2="550" y2="150" stroke="#8a95a5" stroke-dasharray="4 4"/>
+        <text x="435" y="144" text-anchor="middle" font-size="12" fill="#566377">距離約 1 m（示意，未依比例）</text>
+      </svg>
+      <figcaption><span class="tag md">示意</span> 只畫器材位置，不畫光線路徑。<span class="src">07A 雙狹縫實驗架設_空間位置示意</span></figcaption>
+    </figure>
+    <p>一束穩定的紅色雷射光通過兩條相近的窄縫，遠方屏幕會出現什麼分布？先作定性預測。<span class="src">03</span></p>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q1</span>先勾選，再在下方「屏幕」上畫出明暗分布，並寫一項理由。</div>
+      <div class="opts">
+        <label><input type="radio" name="l2q1" value="主要只有兩條亮紋" data-q="l2q1" data-lesson="2" data-prompt="第2節 Q1 預測屏幕分布">主要只有兩條亮紋</label>
+        <label><input type="radio" name="l2q1" value="整片亮度差不多" data-q="l2q1">整片亮度差不多</label>
+        <label><input type="radio" name="l2q1" value="多條明暗相間的條紋" data-q="l2q1">多條明暗相間的條紋</label>
+        <label><input type="radio" name="l2q1" value="其他" data-q="l2q1">其他</label>
+      </div>
+      <span class="fl">我的屏幕預測：點格子切換「亮 → 較暗 → 暗」，中央在中間。</span>
+      <div class="strip" id="stripPred" role="group" aria-label="屏幕預測畫板，共 25 格"></div>
+      <input type="text" id="stripVal" data-q="l2q1d" data-lesson="2" data-kind="strip" data-prompt="第2節 Q1 屏幕預測圖" hidden>
+      <div class="row"><button type="button" class="btn ghost sm" id="stripClear">清除畫板</button><span class="msg">中央 ↑ 位於第 13 格</span></div>
+      <label class="fl" for="l2q1r">我這樣預測，因為：</label>
+      <textarea id="l2q1r" data-q="l2q1r" data-lesson="2" data-prompt="第2節 Q1 預測理由"></textarea>
+      <div class="row"><button type="button" class="btn" data-gatebtn="l2q1,l2q1r" data-go="p-l2-observe">送出預測，看實際觀察</button><span class="msg">勾選並寫下理由後才能看觀察資料。</span></div>
+    </div>
+    <details class="tnote"><summary>教師提示　Q1 判讀</summary><div class="tb"><p>Q1 不以預測正誤評分。完成要素：畫出面向屏幕的完整分布，並保留至少一項可理解的理由。即使預測兩條亮紋，只要理由清楚，也可進入觀察活動。若只畫兩條狹縫，追問：「這是開口的樣子，還是屏幕上看到的樣子？」若先擦掉預測，提醒：「請保留初稿，等觀察後再比較。」學生模式下，下一頁在完成 Q1 前會鎖住；教師模式不鎖。<span class="src">03</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-observe" data-ch="2" data-title="2-2 活動02 觀察實拍" data-requires="l2q1,l2q1r" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 活動02 · 12 分鐘</span><h2>觀察：真實的屏幕圖樣</h2></div>
+    <div class="lock" data-lock hidden>
+      <p><b>先完成預測，再看觀察資料。</b></p>
+      <p class="msg">請回到上一頁完成 Q1 的勾選與理由。先保留自己的想法，觀察後的比較才有意義。</p>
+      <button type="button" class="btn" data-go="p-l2-predict">回到活動01</button>
+    </div>
+    <div data-gated>
+      <div class="sheet" style="padding:0;gap:1.2rem">
+      <div class="evcard">
+        <span><span class="tag ev">實拍證據</span>　632.8 nm 紅光雙狹縫干涉照片</span>
+        <figure><img class="photo" src="img/photos/ds-red.jpg" alt="紅色雷射通過雙狹縫後，方格紙屏幕上出現一整排明暗相間的紅色條紋" loading="lazy"><figcaption>屏幕是方格紙。這是本節觀察的主要證據，先於任何模型呈現。點照片可放大。</figcaption></figure>
+        <span class="lic">照片：Bryan Tong Minh｜Public Domain｜<a href="https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG" target="_blank" rel="noopener">Wikimedia Commons 原始頁</a><span class="src">07A</span></span>
+      </div>
+      <div class="grid2">
+        <figure><img class="photo" src="img/photos/bench-kit.jpg" alt="光學實驗用的光凳器材組：光源、透鏡、支架與屏幕" loading="lazy"><figcaption>光凳器材組：實驗前認識器材，不代表本次實驗組。Waifer X／Cuesta College｜CC BY 2.0｜<a href="https://commons.wikimedia.org/wiki/File:Optical_Bench_educational_Kit_-_Cuesta_College.jpg" target="_blank" rel="noopener">來源</a></figcaption></figure>
+        <figure><img class="photo" src="img/photos/bench-setup.jpg" alt="光凳上依序架設的光源、透鏡與屏幕" loading="lazy"><figcaption>光凳實際架設：建立器材的空間配置。Cantons-de-l'Est｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg" target="_blank" rel="noopener">來源</a></figcaption></figure>
+      </div>
+      <div class="box ws">
+        <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q2</span>勾選資料來源，寫出兩個觀察特徵（例如中央、左右兩側的明暗）。</div>
+        <div class="opts">
+          <label><input type="radio" name="l2q2s" value="現場示範" data-q="l2q2s" data-lesson="2" data-prompt="第2節 Q2 資料來源">現場示範</label>
+          <label><input type="radio" name="l2q2s" value="有來源的實拍照片／影片" data-q="l2q2s">有來源的實拍照片／影片</label>
+          <label><input type="radio" name="l2q2s" value="僅理想模型" data-q="l2q2s">僅理想模型</label>
+        </div>
+        <span class="fl">我的觀察：在下方「屏幕」畫出照片中中央與左右兩側的明暗分布（點格子切換「亮 → 較暗 → 暗」）。</span>
+        <div class="strip" id="stripObs" role="group" aria-label="屏幕觀察畫板，共 25 格"></div>
+        <input type="text" data-q="l2q2d" data-lesson="2" data-kind="strip" data-prompt="第2節 Q2 觀察到的屏幕圖" hidden>
+        <div class="row"><button type="button" class="btn ghost sm" id="stripObsClear">清除畫板</button><span class="msg">中央位於第 13 格</span></div>
+        <label class="fl" for="l2q2a">特徵一</label><input type="text" id="l2q2a" data-q="l2q2a" data-lesson="2" data-prompt="第2節 Q2 觀察特徵一">
+        <label class="fl" for="l2q2b">特徵二</label><input type="text" id="l2q2b" data-q="l2q2b" data-lesson="2" data-prompt="第2節 Q2 觀察特徵二">
+        <div class="hd"><span class="qn">Q3</span>與 Q1 比較後，你保留或修正哪一點？請引用一項觀察。</div>
+        <div class="ans-ro" data-show="l2q1">（你的 Q1 預測）</div>
+        <div class="opts">
+          <label><input type="radio" name="l2q3s" value="大致相同" data-q="l2q3s" data-lesson="2" data-prompt="第2節 Q3 與預測相比">大致相同</label>
+          <label><input type="radio" name="l2q3s" value="部分相同" data-q="l2q3s">部分相同</label>
+          <label><input type="radio" name="l2q3s" value="不同" data-q="l2q3s">不同</label>
+        </div>
+        <textarea data-q="l2q3" data-lesson="2" data-prompt="第2節 Q3 保留或修正哪一點，依據是什麼" placeholder="我保留／修正＿＿＿；依據是＿＿＿。"></textarea>
+      </div>
+      <details class="tnote"><summary>教師提示　Q2–Q3 判讀與安全</summary><div class="tb"><p>Q2：依所用資料描述兩項特徵，例如明暗交替、左右近似對稱；中央附近亮紋間距近似相等。僅觀看模型時，應標為模型結果。Q3：指出保留或修改的內容，且能連到觀察；不要求每人一定改變想法。若以波面弧線當屏幕實拍，追問：「這個畫面是實際紀錄，還是用來解釋的模型？」若只寫「不同」，追問：「哪個觀察讓你修改哪一部分？」</p><p>安全：雷射由教師固定光路，不直視、不指向他人或鏡面，調整前關閉光源。<span class="src">02</span><span class="src">03</span></p></div></details>
+      </div>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-huygens" data-ch="2" data-title="2-3 主要概念：惠更斯原理與相干光" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 主要概念</span><h2>惠更斯原理與相干光</h2><p class="lede">直進模型預測兩條亮帶，實拍卻是多條明暗紋。要解釋它，需要一個能描述光「展開、重疊、增強與減弱」的模型。</p></div>
+    <div class="def"><dl>
+      <dt>惠更斯原理</dt><dd>波面上各點可視為發出次波的波源；次波的包絡形成新的波面。</dd>
+      <dt>次波源</dt><dd>在窄縫近似下，每條窄縫可視為一個次波源。</dd>
+      <dt>相干波源</dt><dd>同一穩定單色光照明兩縫，使兩者頻率相同並保持固定的相位關係。</dd>
+      <dt>光強度</dt><dd>眼睛追不上光的快速振動，看到的是時間平均的光強度。</dd>
+    </dl></div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">波前（波峰位置）示意。圓弧不是光走的路線，也不是照片中看得到的東西。</span></div>
+      <canvas id="huyCv" data-aspect="0.5" aria-label="平面波通過雙狹縫後形成兩組次波的示意動畫"></canvas>
+      <div class="row">
+        <button type="button" class="btn" id="huyPlay">播放</button><button type="button" class="btn ghost" id="huyPause">暫停</button>
+        <button type="button" class="btn ghost tog" id="huyCross" aria-pressed="false">標出波峰交會處</button>
+      </div>
+    </div>
+    <div class="reading">
+      <p>依惠更斯原理，在窄縫近似下，兩條狹縫可視為兩個次波源。同一穩定單色光適當照明兩縫時，兩者頻率相同，並保持固定的相位關係，稱為相干波源。<span class="src">01 節點02</span></p>
+    </div>
+    <div class="cond"><b>成立條件與易混淆處</b>　此處採同偏振方向、相干單色光的理想模型。完全暗紋還需等振幅；實驗暗紋可能仍有背景光。兩縫都會產生繞射，不能說雙狹縫只有干涉。<span class="src">01</span></div>
+    <details class="tnote"><summary>教師提示</summary><div class="tb"><p>素材對應 07A「惠更斯原理_示意圖解說.png」「惠更斯原理_關鍵畫面.png」。本頁動畫為依波動模型生成的示意，先於此頁呈現的是 2-2 的實拍，符合「實拍先於模型」。<span class="src">07A</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-sim" data-ch="2" data-title="2-4 互動模擬：雙狹縫干涉" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 互動模擬</span><h2>互動模擬：光的雙狹縫干涉</h2><p class="lede">看過實拍後，用模型比較：改變波長、縫距和屏幕距離，條紋會怎麼變？</p></div>
+    <div class="sim">
+      <div class="row"><span class="tag md">理想模型</span><span class="msg">依波的疊加計算的屏幕亮度（含單縫繞射包絡）。不能取代實拍。<span class="src">07A 光的干涉</span></span></div>
+      <canvas id="dsCv" data-aspect="0.42" aria-label="雙狹縫屏幕圖樣與亮度曲線"></canvas>
+      <div class="readout" id="dsRead"></div>
+      <div class="ctrls">
+        <label for="dsL">波長 <span class="mono" id="dsLv">633 nm</span><input type="range" id="dsL" min="400" max="700" step="5" value="633"></label>
+        <label for="dsD">縫距 <span class="mono" id="dsDv">0.25 mm</span><input type="range" id="dsD" min="0.10" max="0.50" step="0.01" value="0.25"></label>
+        <label for="dsZ">屏幕距離 <span class="mono" id="dsZv">1.0 m</span><input type="range" id="dsZ" min="0.5" max="2.0" step="0.1" value="1.0"></label>
+      </div>
+      <div class="row"><button type="button" class="btn ghost tog" id="dsWhite" aria-pressed="false">改用白光</button></div>
+    </div>
+    <div class="guide" data-guide="g7">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">把波長從紅光（約 650 nm）調到藍光（約 450 nm），亮紋的間隔會怎樣？</p>
+      <div class="gopts">
+        <button data-fb="再試一次並看讀數：波長變短時，相鄰亮紋的間隔變小，條紋變密。">變大</button>
+        <button data-ok data-fb="對。波長越短，條紋越密。這也說明白光中不同顏色的亮紋位置不同，所以白光的條紋外側會帶彩色。">變小</button>
+        <button data-fb="看讀數「相鄰亮紋間隔」：它會隨波長改變。">不變</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <details class="tnote"><summary>教師提示</summary><div class="tb"><p>原素材「光的干涉拷貝.html」可調波長、縫距與屏距，並切換單色／白光，用於「在實拍證據後解釋雙狹縫條紋」。本頁同樣定位：讀數中的間隔為模擬量測值，高一不推導公式；條紋位置的量化屬延伸（文件04 高中進階）。縫寬固定 0.04 mm。<span class="src">07A</span><span class="src">04</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-explain" data-ch="2" data-title="2-5 活動03 解釋亮暗：B 與 D" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 活動03 · 15 分鐘</span><h2>解釋亮暗：B 點與 D 點</h2><p class="lede">B 是亮紋位置，D 是暗紋位置。用兩個相干次波源的模型比較兩處。</p></div>
+    <div class="reading">
+      <p>兩列光波到達某處時，若相位相同便互相增強；若相位相反便互相減弱。兩列光波在該處振幅相等且反相時，可完全相消。眼睛無法追蹤光的快速振動，看到的是時間平均的光強度，因此形成亮紋與暗紋。暗紋不表示兩列光波都未到達。<span class="src">01 節點02</span></p>
+    </div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">路徑示意、非實拍、未依比例。<span class="src">08 M02 次波模型</span></span></div>
+      <svg id="bdSvg" class="cv" viewBox="0 0 600 300" role="img" aria-label="雙狹縫路徑模型：S1、S2 到屏幕上 B、D 兩點"></svg>
+      <canvas id="bdCv" data-aspect="0.3" aria-label="所選位置兩列光波與合成的振動"></canvas>
+      <div class="row">
+        <span class="fl">比較位置</span>
+        <button type="button" class="btn" id="selB" aria-pressed="true">B 點</button>
+        <button type="button" class="btn ghost" id="selD" aria-pressed="false">D 點</button>
+        <button type="button" class="btn ghost" id="bdPlay">播放</button>
+        <button type="button" class="btn ghost" id="bdPause">暫停</button>
+        <button type="button" class="btn ghost" id="bdReset">重置</button>
+      </div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q4</span>依兩個相干次波源的模型，完成 B 與 D 兩處的判斷。<span class="src">03</span><span class="src">08 ACT01</span></div>
+      <div class="tw"><table class="q4t"><thead><tr><th>位置</th><th>相位</th><th>干涉</th><th>光強</th></tr></thead><tbody>
+        <tr><td>B 亮紋</td>
+          <td><label class="q-opt"><input type="radio" name="bph" value="同相" data-q="q4bph" data-lesson="2" data-prompt="第2節 Q4 B點相位">同相</label><label class="q-opt"><input type="radio" name="bph" value="反相" data-q="q4bph">反相</label></td>
+          <td><label class="q-opt"><input type="radio" name="bin" value="建設性" data-q="q4bin" data-lesson="2" data-prompt="第2節 Q4 B點干涉">建設性</label><label class="q-opt"><input type="radio" name="bin" value="破壞性" data-q="q4bin">破壞性</label></td>
+          <td><label class="q-opt"><input type="radio" name="bit" value="較強" data-q="q4bit" data-lesson="2" data-prompt="第2節 Q4 B點光強">較強</label><label class="q-opt"><input type="radio" name="bit" value="理想下為零" data-q="q4bit">理想下為零</label></td></tr>
+        <tr><td>D 暗紋</td>
+          <td><label class="q-opt"><input type="radio" name="dph" value="同相" data-q="q4dph" data-lesson="2" data-prompt="第2節 Q4 D點相位">同相</label><label class="q-opt"><input type="radio" name="dph" value="反相" data-q="q4dph">反相</label></td>
+          <td><label class="q-opt"><input type="radio" name="din" value="建設性" data-q="q4din" data-lesson="2" data-prompt="第2節 Q4 D點干涉">建設性</label><label class="q-opt"><input type="radio" name="din" value="破壞性" data-q="q4din">破壞性</label></td>
+          <td><label class="q-opt"><input type="radio" name="dit" value="較強" data-q="q4dit" data-lesson="2" data-prompt="第2節 Q4 D點光強">較強</label><label class="q-opt"><input type="radio" name="dit" value="理想下為零" data-q="q4dit">理想下為零</label></td></tr>
+      </tbody></table></div>
+      <label class="fl" for="l2q4">我的初稿：兩列光波都能到達屏幕，為何仍有亮紋與暗紋？（2–3 句）</label>
+      <textarea id="l2q4" data-q="l2q4" data-lesson="2" data-prompt="第2節 Q4 初稿：為何有亮紋與暗紋"></textarea>
+      <div class="row"><button type="button" class="btn" id="askBtn" disabled>請給我追問</button><span class="msg" id="askMsg">完成六個選項與初稿後可請求追問；追問不是必要步驟。</span></div>
+      <div class="hints" data-trigger="askBtn" data-hints='[["L1 釐清想法","你寫的暗紋，是根據哪項觀察？如果你認為「沒有光到達 D」，依據是什麼？","對照：Q4 初稿、雙狹縫紅光實拍"],["L2 回看證據","在模型中連出兩狹縫到 D 的路徑；兩路是否都能到達？","對照：上方次波模型、B 與 D 的位置"],["L3 連結說明","D 點兩路光到達時的振動關係，如何影響合成振幅與亮度？","對照：B／D 比較、你的修訂稿"]]' data-src="10 範例1"></div>
+      <label class="fl" for="l2q4rev">我的修訂（用觀察證據修訂；若保留初稿也請說明）</label>
+      <textarea id="l2q4rev" data-q="l2q4rev" data-lesson="2" data-prompt="第2節 Q4 修訂稿"></textarea>
+      <label class="fl" for="l2q4why">修訂理由／保留初稿的理由</label>
+      <input type="text" id="l2q4why" data-q="l2q4why" data-lesson="2" data-prompt="第2節 Q4 修訂理由">
+    </div>
+    <details class="tnote"><summary>教師提示　Q4 參考答案與追問規則</summary><div class="tb">
+      <p>參考答案：B 同相、建設性、光強較強；D 反相、破壞性，等振幅理想情況下光強為零。判讀重點是學生是否以相位關係及疊加解釋明暗，而非只寫亮暗名稱；實際暗紋可能受背景光或振幅不等影響。<span class="src">03</span></p>
+      <p>常見錯誤與追問：若認為 D 處沒有任何光波到達，追問：「從兩條狹縫出發的波能否都到達 D？到達後如何疊加？」若說能量消失，追問：「其他屏幕位置的亮度有何變化？」<span class="src">03</span></p>
+      <p>追問規則（文件08）：Q4 各欄非空白才可請求；每次一個主問題、最多三句；不揭答案、不給可直接繳交的完整答案；追問非完成活動的必要條件；連續兩層提示仍卡同一錯誤、無證據或來源衝突時轉教師。初稿與修訂分開保存。<span class="src">08</span><span class="src">10</span></p>
+      <div class="tw"><table><thead><tr><th>學生輸入</th><th>可接受的引導</th><th>不應出現的回覆</th></tr></thead><tbody>
+        <tr><td>暗紋是光沒到 D。</td><td>先看模型：兩個狹縫發出的波，都能到達 D 點嗎？</td><td>直接給出 D 點的反相與相消結論。</td></tr>
+        <tr><td>直接給我完整答案。</td><td>先從你已有的觀察開始：實拍中哪項亮暗特徵需要解釋？</td><td>可直接繳交的完整 Q4 答案。</td></tr></tbody></table></div>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-check" data-ch="2" data-title="2-6 引導提問：暗紋與模型" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 迷思檢查站</span><h2>暗紋是沒有光嗎？</h2></div>
+    <div class="guide" data-guide="g8">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">D 點是暗的，所以……</p>
+      <div class="gopts">
+        <button data-fb="回到上一頁的模型：從 S₁、S₂ 都能連一條路到 D。兩路光都到達了，只是到達時振動步調相反，疊加後減弱。">沒有光到達 D 點</button>
+        <button data-ok data-fb="對。兩列光波都到達 D，但反相到達，等振幅時完全相消，所以暗。">兩列光波都到達 D，但反相疊加後互相減弱</button>
+        <button data-fb="狹縫不會擋住通往 D 的路。D 在兩縫前方的屏幕上，兩縫的光都能到達。">光被狹縫擋住，到不了 D</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="guide" data-guide="g9">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">有同學說：「照片裡的光是沿著圓弧前進的。」你同意嗎？</p>
+      <div class="gopts">
+        <button data-fb="實拍照片記錄的是屏幕上的亮暗分布，看不到圓弧。圓弧是惠更斯模型畫的波前，用來解釋，不是照片內容。">同意，照片中可以看到光沿圓弧走</button>
+        <button data-ok data-fb="對。實拍是亮度證據；波前圓弧是解釋用的模型線條。寫 CER 時要分清楚兩者。">不同意，圓弧是模型裡的波前，不是實拍內容</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="grid2">
+      <div class="box"><span class="tag ev">實拍證據</span><p>能說明：屏幕上真的出現多條明暗相間的條紋、左右近似對稱。</p></div>
+      <div class="box"><span class="tag md">模型</span><p>能說明：為什麼會這樣（兩個相干次波源、同相增強、反相減弱）。不能用來證明現象存在。</p></div>
+    </div>
+    <details class="tnote"><summary>教師提示　對應的學習困難</summary><div class="tb"><div class="tw"><table><thead><tr><th>困難</th><th>學生表現</th><th>引導</th><th>改善判準</th></tr></thead><tbody>
+      <tr><td>暗紋等於無光</td><td>「D 點是暗的，所以沒有光到達。」</td><td>先看兩狹縫到 D 的路徑，再比較到達時的振動關係。</td><td>能連結兩路到達、反相疊加與暗紋。</td></tr>
+      <tr><td>模型當成實拍</td><td>「照片裡的光沿圓弧前進。」</td><td>並列實拍與波前圖，請學生標示來源及各圖能說明的事。</td><td>能區分亮度證據與模型線條。</td></tr></tbody></table></div><span class="src">10</span></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-compare" data-ch="2" data-title="2-7 活動04 比較與統整：光 CER" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 活動04 · 15 分鐘</span><h2>水波與光：一樣的規則，不一樣的觀察</h2></div>
+    <div class="guide" data-guide="g10">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">水面的起伏和屏幕上的亮暗，是同一種東西嗎？</p>
+      <div class="gopts">
+        <button data-fb="水波實驗直接看到的是水面的起伏；光的實驗看不到振動，只看到屏幕上時間平均的光強度。兩者共用疊加規則，但可觀察的量不同。">是，亮就是水面高、暗就是水面低</button>
+        <button data-ok data-fb="對。共同的是疊加規則；不同的是可觀察的量：水面起伏 vs 時間平均光強。水波只是類比，光學觀察才是光的證據。">不是，規則相同，但可觀察的量不同</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q5</span>比較水波干涉與光的雙狹縫干涉，各寫一項可觀察的量，再寫一項共同規則。</div>
+      <label class="fl" for="l2q5a">水波可觀察</label><input type="text" id="l2q5a" data-q="l2q5a" data-lesson="2" data-prompt="第2節 Q5 水波可觀察">
+      <label class="fl" for="l2q5b">光的雙狹縫可觀察</label><input type="text" id="l2q5b" data-q="l2q5b" data-lesson="2" data-prompt="第2節 Q5 光的雙狹縫可觀察">
+      <label class="fl" for="l2q5c">共同規則</label><input type="text" id="l2q5c" data-q="l2q5c" data-lesson="2" data-prompt="第2節 Q5 共同規則">
+      <div class="hd"><span class="qn">Q6</span>光 CER：用 4–5 句解釋雙狹縫亮暗紋。依序說明：兩個次波源 → 光波疊加 → 亮紋 → 暗紋 → 與 Q2 觀察的連結。</div>
+      <textarea data-q="l2q6" data-lesson="2" data-prompt="第2節 Q6 光 CER" style="min-height:7rem"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　Q5–Q6 判讀</summary><div class="tb"><p>Q5：水波可看水面起伏；屏幕呈現時間平均的光強分布。共同規則為波的疊加與建設性／破壞性干涉。Q6 參考：兩窄縫可視為相干次波源。兩列光波在屏幕各處疊加。同相處增強形成亮紋。反相處減弱，等振幅時可完全相消形成暗紋。這可解釋 Q2 的明暗分布；若 Q2 僅模型，應註明尚待實際觀察支持。若 Q6 只有名詞列表，追問：「請用『因為……所以……』連起相位、疊加與亮暗。」<span class="src">03</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l2-quiz" data-ch="2" data-title="2-8 第2節小測與銜接" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 2 節 · 小測</span><h2>第2節小測</h2><p class="lede">檢查本節兩個核心問題：直進模型為何不夠用？亮紋暗紋如何形成？<span class="src">05 題卡3、4</span></p></div>
+    <div class="quiz" data-quiz="l2">
+      <div class="qi" data-ans="a" data-pts="1" data-exp="單純幾何直進模型下，預期為兩條狹縫的投影。" data-review="p-l2-predict">
+        <p class="stem">1. 若光只沿直線前進，平行光通過雙狹縫後，屏幕上應出現：</p>
+        <label class="q-opt"><input value="a">兩條亮帶（兩條狹縫的投影）</label><label class="q-opt"><input value="b">多條明暗相間的條紋</label><label class="q-opt"><input value="c">一整片均勻亮光</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="1" data-exp="實拍中的多條明暗交替條紋，是直進模型無法說明的特徵。" data-review="p-l2-observe">
+        <p class="stem">2. 實拍中哪一項特徵，讓我們必須修正直進模型？</p>
+        <label class="q-opt"><input value="a">屏幕上有亮光</label><label class="q-opt"><input value="b">屏幕上出現多條規律的明暗交替條紋</label><label class="q-opt"><input value="c">雷射是紅色的</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="c" data-pts="1" data-exp="兩縫的光都到達 D，反相疊加減弱；等振幅時理想光強為零。" data-review="p-l2-explain">
+        <p class="stem">3. 關於暗紋 D 點，下列何者正確？</p>
+        <label class="q-opt"><input value="a">沒有任何光到達 D</label><label class="q-opt"><input value="b">只有一條狹縫的光到達 D</label><label class="q-opt"><input value="c">兩縫的光都到達 D，但反相疊加而減弱</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,d" data-type="multi" data-pts="2" data-exp="實拍與現場示範是現象證據；波前圖與理想模擬是解釋用的模型。" data-review="p-l2-check">
+        <p class="stem">4. 下列哪些可以作為「雙狹縫後出現明暗條紋」的現象證據？</p>
+        <label class="q-opt"><input value="a">有來源可查的紅光雙狹縫實拍照片</label><label class="q-opt"><input value="b">惠更斯波前圓弧示意圖</label><label class="q-opt"><input value="c">理想模擬算出的亮度曲線</label><label class="q-opt"><input value="d">教師現場的雷射示範</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="1" data-exp="眼睛看到的是時間平均的光強度，不是瞬時振動。" data-review="p-l2-huygens">
+        <p class="stem">5. 我們在屏幕上看到的亮暗，代表的是：</p>
+        <label class="q-opt"><input value="a">光波某一瞬間的位移</label><label class="q-opt"><input value="b">時間平均的光強度</label><label class="q-opt"><input value="c">狹縫的放大影像</label><div class="qfb"></div></div>
+      <div class="row"><button type="button" class="btn" data-check>檢查答案</button><button type="button" class="btn ghost" data-reset>重新作答</button></div>
+      <div data-score></div>
+    </div>
+    <div class="bridge">
+      <span class="bl">帶到下一節</span><p>雙狹縫是「兩個」次波源。如果只剩一條縫，縫內每個位置都可視為次波源，屏幕上會怎樣？同一個疊加原理還適用嗎？<span class="src">01 節點03 銜接</span></p>
+    </div>
+    <details class="tnote"><summary>教師提示　題卡4 成功規準</summary><div class="tb"><div class="lvl"><b>達成</b><span>能完整連結惠更斯原理、兩個相干次波源、相位關係、干涉結果與屏幕亮度，並區分真實證據與模型。</span><b>發展中</b><span>能寫出同相亮、反相暗，但未說明次波源由來、光強度或證據地位。</span><b>待支持</b><span>把亮暗解釋成狹縫影像、遮擋或有無光到達，或把模型圖當作實拍。</span></div><p class="msg">條件核對：<a href="https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference" target="_blank" rel="noopener">OpenStax Vol. 3 §3.1</a></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 第3節 ================= -->
+<section class="page" id="p-l3-intro" data-ch="3" data-title="3-0 本節導入：只剩一條縫" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 知識節點 03、04</span><h2>光的繞射與生活應用</h2></div>
+    <div class="rail here" aria-label="學習路徑，目前在第3節"><div class="done"><b>第1節</b>繩波疊加</div><div class="done"><b>第1節</b>水波干涉</div><div class="r2 done"><b>第2節</b>雙狹縫干涉</div><div class="r3 on"><b>第3節</b>單狹縫與薄膜</div><div class="r3 on"><b>第3節</b>波動性論證</div></div>
+    <div class="bridge">
+      <span class="bl">從哪裡來</span><p>第2節：兩個相干次波源的光波疊加，形成雙狹縫的亮紋與暗紋。</p>
+      <span class="bl">這節要做</span><p>從兩個次波源推進到縫內許多次波源（單狹縫繞射），再把疊加用到薄膜的兩路反射光，最後用兩項光學證據論證光的波動性。<span class="src">01</span></p>
+      <span class="bl">核心問題</span><p><b>這些現象何以支持光的波動性？</b></p>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span>開場：回頭修訂光 CER</div>
+      <p>重讀你在第2節 Q6 寫的光 CER（下方）。哪一句是用模型（例如波前圖）當成實驗證據？補上真正的光學觀察或缺少的推理。</p>
+      <div class="ans-ro" data-show="l2q6">（尚未填寫第2節 Q6）</div>
+      <textarea data-q="l3rev" data-lesson="3" data-prompt="第3節 開場：光 CER 修訂"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　第3節流程</summary><div class="tb">
+      <div class="tw"><table><thead><tr><th>時間</th><th>教師活動與提問</th><th>學生活動</th><th>本書頁面</th></tr></thead><tbody>
+        <tr><td class="c">0–8</td><td>呈現匿名回答紀錄。問：哪句把模型當成實驗證據？</td><td>修訂第2節 Q6</td><td>3-0</td></tr>
+        <tr><td class="c">8–18</td><td>先比實拍，再比次波源分布。問：中央與兩側亮紋有何差別？</td><td>Q1；口頭比較單、雙狹縫</td><td>3-1、3-2</td></tr>
+        <tr><td class="c">18–28</td><td>展示薄膜照片與剖面。問：哪兩束反射光會重疊？</td><td>Q3</td><td>3-3、3-4</td></tr>
+        <tr><td class="c">28–45</td><td>回看雙狹縫與單狹縫實拍。問：直進模型漏掉了什麼？</td><td>Q5①</td><td>3-5</td></tr>
+        <tr><td class="c">45–50</td><td>問：哪項證據改變你的想法？提醒保存修訂及 AI 採納理由。</td><td>Q5②；下載紀錄</td><td>3-5、總學習單</td></tr>
+      </tbody></table></div>
+      <p>第3節學習單原檔不在資料夾內；文件02 只列 Q1、Q3、Q5 的任務，本教材依此建立。<span class="src">02</span></p>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l3-single" data-ch="3" data-title="3-1 單狹縫繞射" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 主要概念 + 互動模擬</span><h2>單狹縫繞射</h2></div>
+    <div class="evcard">
+      <span><span class="tag ev">實拍證據</span>　藍光雷射單狹縫繞射照片</span>
+      <figure><img class="photo" src="img/photos/ss-blue.jpg" alt="藍色雷射通過單狹縫後，中央一個寬而亮的亮紋，兩側是較窄、逐漸變暗的亮紋" loading="lazy"><figcaption>先看實拍：中央亮紋與兩側亮紋的寬度、亮度有什麼不同？點照片可放大。</figcaption></figure>
+      <span class="lic">照片：Xyqorophibian｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg" target="_blank" rel="noopener">Wikimedia Commons 原始頁</a><span class="src">07A</span></span>
+    </div>
+    <figure style="max-width:24rem"><img class="photo" src="img/photos/slit-device.jpg" alt="可調整縫寬的單狹縫器" loading="lazy"><figcaption>可調式單狹縫器（照片尺度不代表課堂狹縫尺度）。Jan Krieger｜CC BY-SA 3.0｜<a href="https://commons.wikimedia.org/wiki/File:Xy_adjustable_optical_slit.jpg" target="_blank" rel="noopener">來源</a></figcaption></figure>
+    <div class="def"><dl>
+      <dt>繞射</dt><dd>光通過窄縫後向側方展開，並形成明暗分布的現象。</dd>
+      <dt>遠場</dt><dd>屏幕足夠遠，使縫內各處到同一觀察點的傳播方向可近似平行。</dd>
+    </dl></div>
+    <div class="reading">
+      <p>單色光通過窄單狹縫後，會向側方展開。在遠場條件下，屏幕中央出現較寬、較亮的中央亮紋，兩側則有較窄、逐漸變弱的旁側亮紋，亮紋之間由暗紋隔開。</p>
+      <p>以均勻、同相照明的狹縫為例，縫內不同位置可視為許多次波源。正前方的次波大致同相到達，彼此增強；偏離正前方後，各次波的路徑長度不同，某些方向完全相消，另一些方向仍有部分增強。<span class="src">01 節點03</span></p>
+    </div>
+    <div class="sim">
+      <div class="row"><span class="tag md">理想模型</span><span class="msg">遠場、均勻單色照明的強度示意。左側藍點代表縫內的次波源。<span class="src">07A 單狹縫繞射_理想圖樣</span></span></div>
+      <canvas id="ssCv" data-aspect="0.42" aria-label="單狹縫繞射屏幕圖樣與亮度曲線"></canvas>
+      <div class="readout" id="ssRead"></div>
+      <div class="ctrls">
+        <label for="ssA">縫寬 <span class="mono" id="ssAv">0.06 mm</span><input type="range" id="ssA" min="0.03" max="0.15" step="0.01" value="0.06"></label>
+        <label for="ssL">波長 <span class="mono" id="ssLv">450 nm</span><input type="range" id="ssL" min="400" max="700" step="5" value="450"></label>
+      </div>
+    </div>
+    <div class="guide" data-guide="g11">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">把縫寬調窄。中央亮紋變寬了，這是因為屏幕上看到的是「狹縫被放大的影像」嗎？</p>
+      <div class="gopts">
+        <button data-fb="如果是放大影像，縫越窄影像應該越窄；但模擬中縫越窄，中央亮紋反而越寬，還有旁側亮紋。這是次波疊加的結果，不是影像。">是，屏幕上是狹縫的放大影像</button>
+        <button data-ok data-fb="對。縫越窄（固定波長、在本教材的尺度內），繞射展開越明顯，中央亮紋越寬。這不是狹縫影像的單純放大。">不是，縫越窄展開越明顯，不是影像放大</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="cond"><b>成立條件</b>　「縫越窄，展開越明顯」須固定波長並限於本教材尺度，不能外推到所有縫寬與近場情況。<span class="src">01</span></div>
+    <details class="tnote"><summary>教師提示</summary><div class="tb"><p>8–18 分：先比實拍，再比次波源分布。問：「中央與兩側亮紋有何差別？」證據：中央較寬較亮；兩側漸弱。素材：單狹縫繞射實拍（文件用衍生版本）、理想圖樣（不得取代實拍）、單狹縫實驗架設示意（不畫幾何光線）。<span class="src">02</span><span class="src">07A</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l3-compare" data-ch="3" data-title="3-2 比較：干涉與繞射的共同原理" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 比較</span><h2>雙狹縫與單狹縫：同一個原理</h2></div>
+    <div class="sim">
+      <div class="row"><span class="tag md">理想模型</span><span class="msg">上：單狹縫（連續分布的次波源）；下：雙狹縫（兩個分立次波源）。<span class="src">07A 雙狹縫與單狹縫_次波源分布</span></span></div>
+      <canvas id="cmpCv" data-aspect="0.48" aria-label="單狹縫與雙狹縫的次波源分布與亮度分布比較"></canvas>
+    </div>
+    <div class="tw"><table><thead><tr><th></th><th>雙狹縫干涉</th><th>單狹縫繞射</th></tr></thead><tbody>
+      <tr><td>次波源</td><td>兩個分立的次波源</td><td>同一縫內連續分布的許多次波源</td></tr>
+      <tr><td>圖樣</td><td>中央附近明暗交替、間隔近似相等</td><td>中央亮紋較寬較亮，旁側較窄、向外漸弱</td></tr>
+      <tr><td>共同原理</td><td colspan="2">波的疊加：同相到達處增強，反相到達處減弱</td></tr>
+    </tbody></table></div>
+    <div class="guide" data-guide="g12">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">干涉和繞射的圖樣不一樣，所以它們的原理完全不同？</p>
+      <div class="gopts">
+        <button data-fb="圖樣不同，是因為次波源的分布不同（兩個 vs 連續許多個），但都用同一個疊加原理解釋。另外，雙狹縫的兩縫本身也會繞射。">對，原理完全不同</button>
+        <button data-ok data-fb="對。兩者都是次波疊加；差別在次波源分布。雙狹縫實驗中其實也同時有繞射（亮度包絡）。">不對，都是次波疊加，只是次波源分布不同</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q1</span>比較雙狹縫與單狹縫：屏幕圖樣有什麼不同？次波源分布有什麼不同？為什麼仍可用同一個疊加原理解釋？</div>
+      <textarea data-q="l3q1" data-lesson="3" data-prompt="第3節 Q1 單、雙狹縫比較" style="min-height:6rem"></textarea>
+      <div class="hints" data-hints='[["L1 釐清想法","如果你認為兩者原理不同，是根據兩張圖的哪個差異？","對照：雙狹縫與單狹縫實拍、你的原說法"],["L2 回看證據","在兩個模型上標出次波源；它們各自如何分布？","對照：上方次波源示意、比較表"],["L3 連結說明","根據次波源分布與明暗紋，你會如何修訂「兩者原理無關」？","對照：比較表、你的修訂稿"]]' data-src="10 範例3"></div>
+    </div>
+    <details class="tnote"><summary>教師提示　題卡5</summary><div class="tb"><p>答案要素：兩者皆可由次波疊加說明。窄雙縫近似為兩個分立次波源；單縫內有連續分布的次波源，因此形成不同的明暗分布。不直接斷言不同裝置的中央寬度大小。迷思：單狹縫圖樣當成狹縫放大影像；繞射與干涉是兩套無關原理；只說光彎曲而未交代次波源分布與疊加。文件10「範例3」原標「活動一比較表」，對應本頁 Q1。</p><div class="lvl"><b>達成</b><span>同時描述圖樣差異、次波源分布差異與共同疊加機制。</span><b>發展中</b><span>只描述其中一項，未建立因果連結。</span><b>待支持</b><span>用幾何投影解釋，或視為完全不同機制。</span></div><p class="msg">條件核對：<a href="https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction" target="_blank" rel="noopener">OpenStax Vol. 3 §4.1</a></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l3-film" data-ch="3" data-title="3-3 薄膜干涉" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 主要概念 + 互動模擬</span><h2>肥皂膜為什麼有顏色？</h2><p class="lede">肥皂膜和水面油膜沒有彩色顏料，卻出現彩色區帶。到達眼睛的是哪兩路光？</p></div>
+    <div class="grid3">
+      <figure><img class="photo" src="img/photos/bubble.jpg" alt="肥皂泡表面出現彩色的薄膜干涉色帶" loading="lazy"><figcaption><span class="tag ev">實拍</span> 肥皂泡。Pksois23｜CC BY-SA 4.0｜<a href="https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg" target="_blank" rel="noopener">來源</a></figcaption></figure>
+      <figure><img class="photo" src="img/photos/soapfilm.jpg" alt="吹泡泡圈上的肥皂膜，由上到下出現水平的彩色色帶" loading="lazy"><figcaption><span class="tag ev">實拍</span> 肥皂膜：厚度不均，色帶分層。Yaroslav Ulyushin｜CC BY 4.0｜<a href="https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg" target="_blank" rel="noopener">來源</a></figcaption></figure>
+      <figure><img class="photo" src="img/photos/oil.jpg" alt="濕地面上的油膜呈現彩虹色帶" loading="lazy"><figcaption><span class="tag ev">實拍</span> 水面油膜。gambier20｜CC BY 2.0｜<a href="https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg" target="_blank" rel="noopener">來源</a></figcaption></figure>
+    </div>
+    <figure>
+      <svg class="white" viewBox="0 0 600 230" role="img" aria-label="薄膜剖面示意：入射白光在上表面反射為第1路，進入薄膜後在下表面反射、穿出上表面為第2路" style="width:100%;height:auto">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#152030"/></marker>
+          <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#c4122f"/></marker>
+          <marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#1c5ea6"/></marker></defs>
+        <rect x="40" y="110" width="520" height="50" fill="#e4edf8" stroke="#1c5ea6"/>
+        <text x="548" y="140" text-anchor="end" font-size="13" fill="#566377">薄膜</text><text x="548" y="100" text-anchor="end" font-size="13" fill="#566377">空氣</text><text x="548" y="185" text-anchor="end" font-size="13" fill="#566377">空氣</text>
+        <line x1="120" y1="20" x2="218" y2="108" stroke="#152030" stroke-width="2.5" marker-end="url(#ar)"/><text x="80" y="16" font-size="13" fill="#152030">入射白光</text>
+        <line x1="220" y1="110" x2="316" y2="24" stroke="#c4122f" stroke-width="2.5" marker-end="url(#arR)"/><text x="298" y="16" font-size="13" fill="#c4122f">① 上表面反射</text>
+        <line x1="220" y1="110" x2="265" y2="160" stroke="#152030" stroke-width="2" stroke-dasharray="5 4"/>
+        <line x1="265" y1="160" x2="310" y2="110" stroke="#1c5ea6" stroke-width="2" stroke-dasharray="5 4"/>
+        <line x1="310" y1="110" x2="406" y2="24" stroke="#1c5ea6" stroke-width="2.5" marker-end="url(#arB)"/><text x="414" y="40" font-size="13" fill="#1c5ea6">② 下表面反射後穿出</text>
+        <text x="40" y="215" font-size="12" fill="#566377">示意圖：不依比例；兩路光朝同一方向傳播而干涉</text>
+      </svg>
+      <figcaption><span class="tag md">示意</span> 薄膜剖面中的兩路反射光。<span class="src">07A 薄膜干涉_實拍與剖面</span></figcaption>
+    </figure>
+    <div class="reading">
+      <p>白光照到肥皂膜或水面油膜時，部分光在上表面反射，另一部分進入薄膜，在下表面反射後再離開。兩部分光朝同一觀察方向傳播時，可以互相干涉。</p>
+      <p>干涉結果與膜厚、折射率、觀察角度及光的波長有關，也受到反射時振動相位改變的影響。相位描述振動進行到哪個階段；折射率則反映光在介質中的傳播速度。膜厚隨位置變化時，白光中的不同波長可能在不同位置增強或減弱，因而呈現彩色分布。</p>
+      <p>牛頓環與薄空氣膜的干涉有關；抗反射鍍膜利用干涉，在設計的波長與角度範圍內降低反射。這些例子都能連回光波疊加的概念（下一頁的生活應用）。<span class="src">01 節點04</span></p>
+    </div>
+    <div class="sim">
+      <div class="row"><span class="tag md">模型</span><span class="msg">肥皂膜（折射率 1.33）正面觀察的反射光顏色，已計入反射相位。右側直立肥皂膜上薄下厚。<span class="src">07A 薄膜干涉</span></span></div>
+      <canvas id="filmCv" data-aspect="0.46" aria-label="膜厚與反射顏色模型"></canvas>
+      <div class="readout" id="filmRead"></div>
+      <div class="ctrls"><label for="filmD">膜厚 <span class="mono" id="filmDv">300 nm</span><input type="range" id="filmD" min="0" max="900" step="10" value="300"></label></div>
+    </div>
+    <div class="guide" data-guide="g13">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">肥皂泡的彩色是怎麼來的？</p>
+      <div class="gopts">
+        <button data-fb="肥皂水本身沒有彩色色素。顏色會隨膜厚改變，這是兩路反射光干涉的結果。">肥皂裡有彩色色素</button>
+        <button data-fb="只用折射解釋，無法說明為什麼顏色隨膜厚改變、為什麼是「反射光」帶色。關鍵是上、下表面兩路反射光的干涉。">光進入肥皂膜時發生折射，把顏色分開了</button>
+        <button data-ok data-fb="對。上表面的反射光與下表面的反射光重疊干涉，不同波長在不同膜厚處增強或減弱。">上、下表面的兩路反射光干涉，不同顏色增強程度不同</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q3</span>在肥皂膜或油膜中，指出會重疊的兩路反射光，並說明為什麼會出現彩色。</div>
+      <textarea data-q="l3q3" data-lesson="3" data-prompt="第3節 Q3 薄膜的兩路反射光與彩色"></textarea>
+    </div>
+    <div class="cond"><b>易混淆處</b>　不能只比較幾何路徑而忽略反射相位。本單元只作定性說明，不計算膜厚或特定顏色。<span class="src">01</span><span class="src">02</span></div>
+    <details class="tnote"><summary>教師提示　題卡6</summary><div class="tb"><p>答案要素：白光照膜後，一路由上表面直接反射；另一路進入薄膜，由下表面反射後穿出。兩路光在觀察方向重疊干涉，使不同波長受到不同程度的增強或減弱。相位差涉及光程及反射相位變化；本題只評量兩路反射光與定性干涉。模擬中膜厚趨近 0 時呈暗色（上表面反射相位反轉所致），可作教師延伸。</p><div class="lvl"><b>達成</b><span>指出兩路反射光，說明重疊干涉造成不同波長增強或減弱；不歸因於色素。</span><b>發展中</b><span>判斷為干涉，但未完整指出兩路反射光或只寫名詞。</span><b>待支持</b><span>只以顏料或折射解釋。</span></div><p class="msg">條件核對：<a href="https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films" target="_blank" rel="noopener">OpenStax Vol. 3 §3.4</a></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l3-life" data-ch="3" data-title="3-4 生活中的干涉與繞射" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 生活應用</span><h2>生活中的干涉與繞射</h2><p class="lede">看到彩色或光芒，先問：「是哪幾路光在疊加？」為每個現象選出主要機制。點照片可放大。</p></div>
+    <div class="cls">
+      <div class="it" data-id="bubble" data-ans="film" data-fb="上、下表面兩路反射光的干涉。" data-hint="想想光在泡泡膜的哪兩個表面反射。">
+        <img class="photo thumb" src="img/photos/bubble.jpg" alt="肥皂泡的彩色" loading="lazy"><b>肥皂泡的彩色</b>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+      <div class="it" data-id="oil" data-ans="film" data-fb="油膜上、下表面反射光干涉；膜厚不均造成色帶。" data-hint="油膜是一層很薄的透明膜。">
+        <img class="photo thumb" src="img/photos/oil.jpg" alt="水面油膜的色帶" loading="lazy"><b>水面油膜的色帶</b>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+      <div class="it" data-id="cd" data-ans="grating" data-fb="光碟表面有規則排列的細紋，屬週期結構繞射，不歸為薄膜干涉。" data-hint="光碟表面有一圈圈規則排列的細紋，不是一層薄膜。">
+        <img class="photo thumb" src="img/photos/cd.jpg" alt="光碟表面的虹彩" loading="lazy"><b>光碟的虹彩</b>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+      <div class="it" data-id="newton" data-ans="film" data-fb="牛頓環與鏡片和玻璃之間的薄空氣膜干涉有關。" data-hint="透鏡與平板玻璃之間夾著一層很薄的空氣。">
+        <img class="photo thumb" src="img/photos/newton.jpg" alt="透鏡與平板玻璃間的牛頓環彩色同心環" loading="lazy"><b>牛頓環</b>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+      <div class="it" data-id="ar" data-ans="film" data-fb="抗反射鍍膜利用干涉，在設計的波長與角度範圍內降低反射，並非所有光都不反射。" data-hint="鏡片表面鍍了一層很薄的膜。">
+        <img class="photo thumb" src="img/photos/ar-lens.jpg" alt="一般鏡片與抗反射鏡片的反射比較" loading="lazy"><b>抗反射鏡片</b>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+      <div class="it" data-id="spike" data-ans="aperture" data-fb="望遠鏡結構造成的繞射；尖峰不是恆星真實外形。" data-hint="尖峰來自望遠鏡內部支架等結構，是光通過時的展開。">
+        <a href="https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg" target="_blank" rel="noopener"><b>望遠鏡照片中星星的光芒尖峰</b></a>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+      <div class="it" data-id="morpho" data-ans="multi" data-fb="藍閃蝶、孔雀羽毛的結構色可能同時涉及干涉、繞射與散射，要個別判斷，也不能只用顏料解釋。" data-hint="生物的結構色很複雜，常不只一種機制。">
+        <div class="thumbs2"><img class="photo thumb" src="img/photos/morpho.jpg" alt="藍閃蝶張開的藍色翅膀" loading="lazy"><img class="photo thumb" src="img/photos/peacock.jpg" alt="孔雀羽毛的眼狀斑紋" loading="lazy"></div><b>藍閃蝶的翅膀、孔雀羽毛</b>
+        <div class="row"><button data-v="film">薄膜干涉</button><button data-v="grating">週期結構繞射</button><button data-v="aperture">孔徑／邊緣繞射</button><button data-v="multi">可能多種機制</button></div><p class="msg cfb"></p></div>
+    </div>
+    <p class="msg">照片（點照片可放大）：肥皂泡 Pksois23 CC BY-SA 4.0；油膜 gambier20 CC BY 2.0；光碟 Hapecko CC BY-SA 4.0；牛頓環 Ulfbastel Public Domain；鏡片 Maximilian Schönherr CC0；望遠鏡 ESA/Hubble &amp; NASA CC BY 4.0；藍閃蝶 Alias 0591（Rene Mensen）CC BY 2.0；孔雀羽毛 Bernard Spragg. NZ CC0。來源頁見封底。<span class="src">07A</span></p>
+    <details class="tnote"><summary>教師提示</summary><div class="tb"><p>新情境應用（文件02 評量）：辨認薄膜的兩路反射光；比較光碟與薄膜的機制，判斷標準為辨認干涉來源、不混淆薄膜與光碟。07A：光碟歸入週期結構繞射，油膜與肥皂膜歸入薄膜干涉；結構色可能涉及干涉、繞射與散射。<span class="src">02</span><span class="src">07A</span></p></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l3-argue" data-ch="3" data-title="3-5 統整：光的波動性論證" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 統整</span><h2>證據怎麼支持光的波動性？</h2></div>
+    <h3>兩項真實光學觀察</h3>
+    <div class="grid2">
+      <figure><img class="photo" src="img/photos/ds-red.jpg" alt="雙狹縫干涉實拍：一整排明暗相間的紅色條紋" loading="lazy"><figcaption><span class="tag ev">實拍證據一</span> 雙狹縫：多條明暗交替的條紋。Bryan Tong Minh｜Public Domain</figcaption></figure>
+      <figure><img class="photo" src="img/photos/ss-blue.jpg" alt="單狹縫繞射實拍：中央寬亮紋，兩側漸弱" loading="lazy"><figcaption><span class="tag ev">實拍證據二</span> 單狹縫：中央亮紋較寬，光展開到兩側。Xyqorophibian｜CC BY-SA 4.0</figcaption></figure>
+    </div>
+    <div class="sim">
+      <div class="row"><span class="tag md">對照示意</span><span class="msg">左：直進模型的預測。右：依上方實拍特徵繪製的示意（非照片）。</span></div>
+      <canvas id="modelCv" data-aspect="0.45" aria-label="直進模型預測與實際觀察特徵的對照"></canvas>
+      <p class="readout" id="modelMsg"></p>
+      <div class="row"><button type="button" class="btn tog" id="mDouble" aria-pressed="true">雙狹縫</button><button type="button" class="btn ghost tog" id="mSingle" aria-pressed="false">單狹縫</button></div>
+    </div>
+    <div class="reading">
+      <p>回顧雙狹縫與單狹縫，雖然參與疊加的次波源分布不同，兩者都形成有規律的明暗分布。這些現象可由波動模型解釋，因此支持光具有波動性。<span class="src">01 節點04</span></p>
+    </div>
+    <div class="guide" data-guide="g14">
+      <div class="hd"><span class="tag gq">引導提問</span></div>
+      <p class="gq">干涉與繞射的證據，代表我們已經證明「光只是波」了嗎？</p>
+      <div class="gopts">
+        <button data-fb="本單元的證據支持光在這些情境中具有波動行為，但不等於否定光的粒子性，也不代表已經說明光的全部性質。">是，光已被證明只是波</button>
+        <button data-ok data-fb="對。這是寫論證時必須說明的「界限」。">不是，只能說光在這些情境中具有波動行為</button>
+      </div>
+      <div class="gfb" aria-live="polite"></div>
+    </div>
+    <div class="box ws">
+      <div class="hd"><span class="tag ws">學習單</span><span class="qn">Q5①</span>引用<b>兩項真實光學觀察</b>（雙狹縫、單狹縫），比較直進模型與波動模型的解釋力，論證光具有波動行為，並寫出結論的適用範圍。</div>
+      <textarea data-q="l3q5a" data-lesson="3" data-prompt="第3節 Q5① 波動性論證" style="min-height:8rem" placeholder="觀察一（來源）……&#10;觀察二（來源）……&#10;直進模型無法解釋……；次波疊加可以解釋……&#10;因此……；但這個結論的範圍是……"></textarea>
+      <div class="hd"><span class="qn">Q5②</span>三節課前後，你的想法改變了什麼？哪一項證據讓你改變？若使用過提示，說明你採納或不採納的理由。</div>
+      <textarea data-q="l3q5b" data-lesson="3" data-prompt="第3節 Q5② 前後想法與證據"></textarea>
+    </div>
+    <details class="tnote"><summary>教師提示　題卡7</summary><div class="tb"><p>答案要素：兩項觀察都需要能展開、疊加並在不同位置增強或減弱的波動描述。單純直進模型既未預測完整圖樣，也無法同時解釋亮暗交替與幾何陰影區中的展開。兩項證據共同支持光在這些情境中具有波動行為；不等於已完整說明光的全部性質。</p><div class="lvl"><b>達成</b><span>列出兩項真實光學證據、比較兩種模型的解釋力，並寫出論證界限。</span><b>發展中</b><span>只指出一項，證據不完整、缺少模型比較或界限。</span><b>待支持</b><span>只重述結論、以模擬作主要證據，或作出超出證據範圍的宣稱。</span></div><span class="src">05</span></div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-l3-quiz" data-ch="3" data-title="3-6 第3節隨堂測驗" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">第 3 節 · 隨堂測驗</span><h2>第3節隨堂測驗</h2><p class="lede">7 題，共 15 分，約 10～12 分鐘。依第3節隨堂測驗雙向細目表命題。<span class="src">06 隨堂第3節</span></p></div>
+    <div class="quiz" data-quiz="l3">
+      <div class="qi" data-ans="b" data-pts="1" data-row="指出單狹縫圖樣特徵" data-exp="遠場單狹縫：中央亮紋最寬最亮，旁側較窄並向外漸弱。" data-review="p-l3-single">
+        <p class="stem">1. 單狹縫繞射的遠場圖樣中，中央亮紋的特徵是：</p>
+        <label class="q-opt"><input value="a">和旁側亮紋一樣寬、一樣亮</label><label class="q-opt"><input value="b">比旁側亮紋寬且亮</label><label class="q-opt"><input value="c">比旁側亮紋窄且暗</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a" data-pts="1" data-row="區分兩種狹縫的次波源分布" data-exp="雙縫近似兩個分立次波源；單縫內為連續分布的次波源。" data-review="p-l3-compare">
+        <p class="stem">2. 下列關於次波源分布的敘述，何者正確？</p>
+        <label class="q-opt"><input value="a">雙狹縫是兩個分立次波源，單狹縫是縫內連續分布的次波源</label><label class="q-opt"><input value="b">兩者都只有一個次波源</label><label class="q-opt"><input value="c">單狹縫沒有次波源，所以只是投影</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="c" data-pts="1" data-row="說明透明薄膜色彩的成因" data-exp="上、下表面兩路反射光干涉，不同波長增強程度不同。" data-review="p-l3-film">
+        <p class="stem">3. 透明肥皂膜呈現彩色的主要原因是：</p>
+        <label class="q-opt"><input value="a">膜中含有彩色色素</label><label class="q-opt"><input value="b">光只在膜中折射</label><label class="q-opt"><input value="c">上、下表面兩路反射光干涉</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a" data-pts="2" data-row="辨識單雙狹縫亮度曲線" data-exp="中央峰最寬、兩側峰向外快速變弱的是單狹縫；許多間隔相近的峰（外有包絡）是雙狹縫。" data-review="p-l3-compare">
+        <p class="stem">4. 下列兩條是理想亮度曲線（模型）。哪一條是單狹縫繞射？</p>
+        <div class="grid2"><figure><canvas id="qcvA" data-aspect="0.42" aria-label="亮度曲線甲"></canvas><figcaption>曲線甲</figcaption></figure><figure><canvas id="qcvB" data-aspect="0.42" aria-label="亮度曲線乙"></canvas><figcaption>曲線乙</figcaption></figure></div>
+        <label class="q-opt"><input value="a">曲線甲</label><label class="q-opt"><input value="b">曲線乙</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,b,d" data-type="multi" data-pts="4" data-row="評估直進模型的解釋限制" data-exp="直進模型無法預測多條明暗交替，也無法說明光展開到幾何陰影區；它只預測狹縫的投影。" data-review="p-l3-argue">
+        <p class="stem">5. 用直進模型解釋單、雙狹縫實驗，會遇到哪些困難？</p>
+        <label class="q-opt"><input value="a">無法說明雙狹縫後出現多條明暗交替的條紋</label><label class="q-opt"><input value="b">無法說明單狹縫後光會展開到幾何陰影區</label><label class="q-opt"><input value="c">無法說明光可以穿過狹縫</label><label class="q-opt"><input value="d">只能預測出與狹縫形狀相近的投影</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="3" data-row="以反射光相位判斷波長強弱" data-exp="藍光兩路反射光反相而減弱、紅光同相而增強，反射光中紅光較多，所以偏紅。" data-review="p-l3-film">
+        <p class="stem">6. 肥皂膜某處的厚度，使藍光的兩路反射光到達眼睛時反相，紅光的兩路反射光同相。從正面看這一處，反射光偏什麼顏色？</p>
+        <label class="q-opt"><input value="a">偏藍</label><label class="q-opt"><input value="b">偏紅</label><label class="q-opt"><input value="c">完全黑色</label><label class="q-opt"><input value="d">白色，看不出差別</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,c" data-type="multi" data-pts="3" data-row="評析只用折射解釋色彩的不足" data-exp="只用折射說不出為何顏色隨膜厚改變、為何反射光帶色；關鍵是兩路反射光的干涉。" data-review="p-l3-film">
+        <p class="stem">7. 有同學說：「肥皂膜的彩色是光折射造成的。」下列哪些是這個說法的不足？</p>
+        <label class="q-opt"><input value="a">無法說明顏色為何隨膜厚不同而改變</label><label class="q-opt"><input value="b">肥皂膜不會讓光折射</label><label class="q-opt"><input value="c">忽略了上、下表面兩路反射光的干涉</label><label class="q-opt"><input value="d">折射只會發生在玻璃中</label><div class="qfb"></div></div>
+      <div class="row"><button type="button" class="btn" data-check>檢查答案</button><button type="button" class="btn ghost" data-reset>重新作答</button></div>
+      <div data-score></div>
+    </div>
+    <div class="bridge">
+      <span class="bl">帶到之後</span><p>三節課結束了。接下來在「總學習單」檢查所有作答，再做「總評量」，看看你和前測時相比走了多遠。條紋到底在哪個位置、薄膜要多厚，是高中進階物理的內容（見「延伸學習」）。<span class="src">04</span><span class="src">06</span></p>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 課後 ================= -->
+<section class="page" id="p-worksheet" data-ch="4" data-title="總學習單" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">課後</span><h2>總學習單</h2><p class="lede">三節課的所有學習單題目都在這裡。文字題可以直接在此修改，會同步到原頁；選擇與畫板題請點頁碼回原頁作答。</p></div>
+    <p class="score" id="wsCount"></p>
+    <div id="wsbox" class="wsgrp"></div>
+    <div class="box">
+      <h3>繳交作答紀錄</h3>
+      <p class="msg">作答只存在這台裝置的瀏覽器。完成後下載作答紀錄（JSON 或 CSV，CSV 可用 Excel 開啟）交給老師，或複製後貼到老師指定的地方。紀錄以學生代碼標示，包含初稿與修訂、引導提問選擇、測驗成績、提示歷程與模型操作。共用電腦用完請清除。<span class="src">02 數位記錄</span><span class="src">08 第五部分</span></p>
+      <div class="row">
+        <button type="button" class="btn" id="dlJson">下載 JSON</button>
+        <button type="button" class="btn" id="dlCsv">下載 CSV</button>
+        <button type="button" class="btn ghost" id="copyRec">複製作答紀錄</button>
+        <button type="button" class="btn ghost" id="showRec">顯示作答紀錄</button>
+        <button type="button" class="btn ghost" id="clearRec">清除本機作答</button>
+      </div>
+      <div class="row" id="clearAsk" hidden><span class="msg">確定清除本機所有作答、測驗與提示紀錄？清除後無法復原。</span><button type="button" class="btn" id="clearYes">確定清除</button><button type="button" class="btn ghost" id="clearNo">取消</button></div>
+      <textarea id="recOut" readonly hidden style="min-height:12rem;font-family:var(--f-mono);font-size:.78rem" aria-label="作答紀錄 JSON"></textarea>
+    </div>
+    <div class="bridge">
+      <span class="bl">下一步</span><p>確認三節的學習單都完成後，翻到下一頁的<b>總評量</b>。它對應前測的同一組學習目標，可以看出你從課前到現在的改變。<span class="src">06</span></p>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-assess" data-ch="4" data-title="總評量" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">課後</span><h2>總評量</h2><p class="lede">14 題，共 30 分，約 25～30 分鐘。題目依後測雙向細目表的八項學習目標命題；作答後會顯示各目標的得分，以及需要複習的頁面。<span class="src">06 後測</span></p></div>
+    <div class="quiz" data-quiz="post">
+      <div class="qi" data-ans="a" data-pts="1" data-row="運用疊加並說明通過後狀態" data-exp="疊加原理：同一位置、同一時刻的合位移為各波位移的代數和。" data-review="p-l1-concept">
+        <p class="stem">1. 兩列波在同一位置相遇時，該處的合位移等於：</p>
+        <label class="q-opt"><input value="a">兩列波在該處、該時刻位移的代數和</label><label class="q-opt"><input value="b">兩列波中較大的那個位移</label><label class="q-opt"><input value="c">永遠等於兩振幅之和</label><label class="q-opt"><input value="d">永遠為零</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="2" data-row="運用疊加並說明通過後狀態" data-exp="+1＋(+0.5)＝+1.5。" data-review="p-l1-sim">
+        <p class="stem">2. 高 +1 與高 +0.5 的兩個向上脈衝在 P 點完全重疊，該瞬間 P 點合位移為：</p>
+        <label class="q-opt"><input value="a">+0.5</label><label class="q-opt"><input value="b">+1.5</label><label class="q-opt"><input value="c">+1</label><label class="q-opt"><input value="d">+2</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="c" data-pts="1" data-row="區分瞬時位移與振幅" data-exp="位移為零只是此刻經過平衡位置；振幅要看一段時間的最大位移。" data-review="p-l1-amp">
+        <p class="stem">3. 水面上某點此刻的位移為零，可以推論：</p>
+        <label class="q-opt"><input value="a">該點振幅一定為零</label><label class="q-opt"><input value="b">該點一定在腹線上</label><label class="q-opt"><input value="c">無法判斷振幅，需觀察一段時間的起伏</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="1" data-row="判讀同調條件與水波干涉" data-exp="穩定干涉需要頻率相同、相位關係固定的同調波源。" data-review="p-l1-water">
+        <p class="stem">4. 兩個水波源要形成位置穩定的干涉圖樣，需要：</p>
+        <label class="q-opt"><input value="a">兩波源振幅一定要不同</label><label class="q-opt"><input value="b">兩波源頻率相同且相位關係固定</label><label class="q-opt"><input value="c">兩波源輪流振動</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a" data-pts="1" data-row="說明雙狹縫相干次波源" data-exp="同一束穩定單色光照明兩縫，兩縫出射波同頻率、相位關係固定。" data-review="p-l2-huygens">
+        <p class="stem">5. 雙狹縫實驗中，兩條狹縫可以視為相干次波源，是因為：</p>
+        <label class="q-opt"><input value="a">兩縫被同一束穩定單色光照明，頻率相同且相位關係固定</label><label class="q-opt"><input value="b">兩縫各自是一個小燈泡</label><label class="q-opt"><input value="c">兩縫的寬度剛好不同</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="c" data-pts="1" data-row="查核AI回饋的證據來源" data-exp="AI 的說法要回到證據查核：模型顯示兩縫的光都能到達暗紋處，所以「光被擋住」與證據不符。" data-review="p-l2-check">
+        <p class="stem">6. AI 回饋說：「暗紋是因為光被狹縫擋住，沒有到達。」你應該怎麼處理？</p>
+        <label class="q-opt"><input value="a">AI 說的一定對，直接採用</label><label class="q-opt"><input value="b">把這句話直接抄進 CER</label><label class="q-opt"><input value="c">對照模型與觀察查核：兩縫的光都能到達暗紋處，這說法與證據不符，不採用</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="2" data-row="運用疊加並說明通過後狀態" data-exp="重疊只是暫時的，通過後兩脈衝各自沿原方向傳播。" data-review="p-l1-anim">
+        <p class="stem">7. 等大反向的兩脈衝完全重疊後的下一刻，繩子會：</p>
+        <label class="q-opt"><input value="a">一直保持平直</label><label class="q-opt"><input value="b">重新出現兩個脈衝，各自沿原方向前進</label><label class="q-opt"><input value="c">出現一個高度加倍的脈衝</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="c" data-pts="2" data-row="判讀同調條件與水波干涉" data-exp="距離差為半個波長，兩波反相到達，位在節線上，振幅極小。" data-review="p-l1-lines">
+        <p class="stem">8. 兩個同相水波源，某點到兩波源的距離相差半個波長。該點：</p>
+        <label class="q-opt"><input value="a">位在腹線上，振幅最大</label><label class="q-opt"><input value="b">只有一個波源的波能到達</label><label class="q-opt"><input value="c">位在節線上，兩波反相到達，振幅極小</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a" data-pts="2" data-row="比較單雙縫圖樣與次波源分布" data-exp="單狹縫遠場：中央亮紋最寬最亮，旁側漸弱。" data-review="p-l3-single">
+        <p class="stem">9. 下列哪一項描述的是單狹縫繞射的遠場圖樣？</p>
+        <label class="q-opt"><input value="a">中央亮紋較寬較亮，兩側較窄且向外漸弱</label><label class="q-opt"><input value="b">許多寬度與亮度都相同的條紋</label><label class="q-opt"><input value="c">只有一條和狹縫一樣寬的亮帶</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="2" data-row="運用疊加並說明通過後狀態" data-exp="繩子變平只是該瞬間位移相消；之後兩脈衝重新出現，所以能量沒有消失。" data-review="p-l1-check">
+        <p class="stem">10. 同學說：「反向脈衝重疊時繩子變平，表示兩個波的能量消失了。」最好的分析是：</p>
+        <label class="q-opt"><input value="a">正確，平直的繩子沒有能量</label><label class="q-opt"><input value="b">不正確，那只是該瞬間位移相消，之後兩脈衝重新出現並繼續傳播</label><label class="q-opt"><input value="c">正確，所以之後也不會再有脈衝</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,c" data-type="multi" data-pts="3" data-row="解釋薄膜反射光與色彩" data-exp="到達眼睛的兩路光：上表面直接反射的光，以及進入薄膜後由下表面反射穿出的光。" data-review="p-l3-film">
+        <p class="stem">11. 從正面看肥皂膜時，會重疊干涉而到達眼睛的兩路光是哪兩路？</p>
+        <label class="q-opt"><input value="a">上表面直接反射的光</label><label class="q-opt"><input value="b">直接穿過薄膜往後方走的光</label><label class="q-opt"><input value="c">進入薄膜、由下表面反射後穿出的光</label><label class="q-opt"><input value="d">被肥皂色素吸收後發出的光</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="b" data-pts="3" data-row="比較單雙縫圖樣與次波源分布" data-exp="兩者都由次波疊加解釋；差別在雙縫是兩個分立次波源，單縫是連續分布的次波源。" data-review="p-l3-compare">
+        <p class="stem">12. 為什麼雙狹縫干涉與單狹縫繞射的圖樣不同，卻能用同一個原理解釋？</p>
+        <label class="q-opt"><input value="a">因為兩者都是光沿直線前進的投影</label><label class="q-opt"><input value="b">兩者都是次波疊加，只是次波源分布不同（兩個分立 vs 連續分布）</label><label class="q-opt"><input value="c">其實兩者原理不同，只是剛好都有亮暗</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,c" data-type="multi" data-pts="4" data-row="比較單雙縫圖樣與次波源分布" data-exp="甲為單狹縫（中央峰寬、旁側弱）；乙為雙狹縫（許多間隔相近的峰，外圍受單縫繞射包絡影響）。" data-review="p-l3-compare">
+        <p class="stem">13. 比較下列兩條理想亮度曲線（模型），哪些敘述正確？</p>
+        <div class="grid2"><figure><canvas id="acvA" data-aspect="0.42" aria-label="亮度曲線甲"></canvas><figcaption>曲線甲</figcaption></figure><figure><canvas id="acvB" data-aspect="0.42" aria-label="亮度曲線乙"></canvas><figcaption>曲線乙</figcaption></figure></div>
+        <label class="q-opt"><input value="a">甲的中央峰最寬，旁側峰向外變弱，符合單狹縫</label><label class="q-opt"><input value="b">乙的所有峰一樣高，表示雙狹縫沒有繞射</label><label class="q-opt"><input value="c">乙有許多間隔相近的峰，峰高受外圍包絡影響，符合雙狹縫</label><label class="q-opt"><input value="d">甲是狹縫放大後的影像</label><div class="qfb"></div></div>
+      <div class="qi" data-ans="a,b,e" data-type="multi" data-pts="5" data-row="評析波動證據與模型界限" data-exp="證據要用真實光學觀察（雙縫、單縫實拍）；水波與模擬是類比或模型；結論的界限是「這些情境中具有波動行為」。" data-review="p-l3-argue">
+        <p class="stem">14. 要論證「光具有波動行為」，下列哪些選項應該寫進論證？</p>
+        <label class="q-opt"><input value="a">雙狹縫實拍中多條明暗交替的條紋（附來源）</label><label class="q-opt"><input value="b">單狹縫實拍中光展開、中央亮紋較寬（附來源）</label><label class="q-opt"><input value="c">水波模擬畫面中的腹線與節線</label><label class="q-opt"><input value="d">「這證明光只是波，沒有其他性質」</label><label class="q-opt"><input value="e">「這些證據支持光在這些情境中具有波動行為」</label><div class="qfb"></div></div>
+      <div class="row"><button type="button" class="btn" data-check>交卷並計分</button><button type="button" class="btn ghost" data-reset>重新作答</button></div>
+      <div data-score></div>
+    </div>
+    <details class="tnote"><summary>教師提示　命題說明</summary><div class="tb"><p>題目為本教材依文件06 後測雙向細目表自編：每列題號、層次與配分照細目表（例如「評析波動證據與模型界限」第14題、評鑑、5 分；「比較單雙縫圖樣與次波源分布」第9、12、13題、9 分）。複選題依「選對數－選錯數」比例給分，取至 0.5 分。原後測卷不在資料夾內，正式施測請以原卷為準。<span class="src">06</span></p></div></details>
+    <div class="bridge">
+      <span class="bl">之後</span><p>得分較低的目標，點題目下方的連結回到對應頁複習。想知道條紋「在哪裡」、薄膜要「多厚」，翻到下一頁的<b>延伸學習</b>。<span class="src">04</span></p>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-ext" data-ch="4" data-title="延伸學習" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">延伸</span><h2>同一個主題，之後還會再學兩次</h2><p class="lede">高一先用現象圖理解「為什麼」；高中進階物理會算出條紋「在哪裡」；大學再處理強度、解析度與精密量測。依你的先備選讀。<span class="src">04</span></p></div>
+    <div class="tw"><table><thead><tr><th>面向</th><th>高一（本單元）</th><th>高中進階物理</th><th>大一普通物理</th></tr></thead><tbody>
+      <tr><td>主題</td><td>波疊加、水波干涉、雙狹縫與繞射</td><td>雙狹縫、單狹縫、光柵與薄膜量化</td><td>相量、解析度、干涉量測與影像分析</td></tr>
+      <tr><td>能力</td><td>解釋亮暗分布；區分觀察與模型；以證據修訂解釋</td><td>由路程差求條紋位置；估算波長、縫寬與膜厚</td><td>比較強度與可見度；估算解析度；以條紋量測位移</td></tr>
+      <tr><td>範圍</td><td>定性比較；不推導公式</td><td>條紋位置與近似；薄膜反射相位；暫不求完整強度分布</td><td>相量、多縫、牛頓環與量測；不做微積分推導</td></tr>
+      <tr><td>工具</td><td>波形圖、實拍與模擬</td><td>幾何圖、三角函數、小角度近似與直尺</td><td>相量圖、強度曲線、試算表擬合與殘差</td></tr>
+      <tr><td>先備</td><td>波長、振幅、直進、反射與折射</td><td>疊加、相位、三角比、比例與單位換算</td><td>高中干涉繞射公式、向量、三角函數、誤差概念</td></tr>
+    </tbody></table></div>
+    <h3>高中進階：量化</h3>
+    <div class="links">
+      <a href="https://dop.nycu.edu.tw/ch/page.html?tID=260" target="_blank" rel="noopener">薄膜干涉<small>陽明交大光電系 · 以泡膜、油膜連結光程差與反射相位 · 接 3-3</small></a>
+      <a href="https://www.ntsec.edu.tw/liveSupply/detail.aspx?a=6829&amp;cat=6843&amp;lid=19944&amp;p=1&amp;print=1" target="_blank" rel="noopener">極光巧克力炫目登場<small>臺灣網路科教館 · 由微細紋理與光碟虹彩認識光柵 · 接 3-4 光碟</small></a>
+      <div class="box" style="padding:.5rem .7rem;font-size:.9rem;line-height:1.5;gap:0">原延伸教材第1至4章<small class="msg" style="font-size:.76rem">高三選修物理教材 · 條紋位置、光柵與薄膜量化模型（紙本，請洽教師）</small></div>
+    </div>
+    <h3>大一波動光學</h3>
+    <div class="links">
+      <a href="https://openstax.org/books/university-physics-volume-3/pages/3-introduction" target="_blank" rel="noopener">University Physics Vol. 3 第3章<small>OpenStax · 干涉 · 需英文閱讀</small></a>
+      <a href="https://openstax.org/books/university-physics-volume-3/pages/4-introduction" target="_blank" rel="noopener">University Physics Vol. 3 第4章（4.1–4.5）<small>OpenStax · 繞射、強度與解析度</small></a>
+      <a href="https://web3.nmns.edu.tw/Exhibits/112/the-gravity-realm/unit-4.html" target="_blank" rel="noopener">偵測重力波的關鍵技術<small>國立自然科學博物館 · 精密反射鏡鍍膜 · 接抗反射鍍膜</small></a>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<!-- ================= 教師專區 ================= -->
+<section class="page" id="p-t-plan" data-ch="5" data-title="教學流程與準備" data-teacher tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">教師專區</span><h2>教學流程與準備</h2><p class="lede">依文件02。設計者：江長屹／台師大科教所；範例 v1.0／115.09.04。<span class="src">02</span></p></div>
+    <div class="tw"><table><thead><tr><th>節次</th><th>功能</th><th>核心問題</th><th>教材／活動</th><th>學生產出</th><th>本書頁</th></tr></thead><tbody>
+      <tr><td>1</td><td>建立規則</td><td>波如何疊加？</td><td>繩波、水波</td><td>波形、選點、CER</td><td>1-0～1-9</td></tr>
+      <tr><td>2</td><td>遷移至光</td><td>亮暗紋如何形成？</td><td>雙狹縫</td><td>屏幕圖、光 CER</td><td>2-0～2-8</td></tr>
+      <tr><td>3</td><td>應用統整</td><td>何以支持波動性？</td><td>繞射、薄膜</td><td>比較、統整與反思</td><td>3-0～3-6</td></tr>
+    </tbody></table></div>
+    <h3>學習目標與評量對應</h3>
+    <div class="tw"><table><thead><tr><th>目標</th><th>可觀察證據</th><th>達成規準</th></tr></thead><tbody>
+      <tr><td>1 以疊加解釋繩波與水波</td><td>第1節 Q2、Q3、Q7</td><td>位移及振幅判讀正確</td></tr>
+      <tr><td>2 解釋雙狹縫亮暗紋</td><td>第2節 Q2、Q4–Q6</td><td>以電場疊加解釋亮暗</td></tr>
+      <tr><td>3 比較干涉、繞射與薄膜反射</td><td>第3節 Q1、Q3</td><td>辨識繞射及薄膜反射光</td></tr>
+      <tr><td>4 引用光學證據完成論證，查核回饋並修訂</td><td>第3節 Q5</td><td>證據可回查、推理相連；說明波動模型界限</td></tr>
+    </tbody></table></div>
+    <h3>評量與學習記錄</h3>
+    <div class="tw"><table><thead><tr><th>時機</th><th>任務</th><th>判斷標準</th><th>本書位置</th></tr></thead><tbody>
+      <tr><td>單元開始</td><td>前測：疊加、初始光模型與證據來源</td><td>辨識先備概念與主要迷思</td><td>課前暖身（前測另發）</td></tr>
+      <tr><td>學習過程</td><td>預測圖、觀察、三段 CER 與同儕修訂</td><td>主張明確、證據可查，推理連到物理原理</td><td>各節學習單、總學習單</td></tr>
+      <tr><td>新情境應用</td><td>辨認薄膜兩路反射光；比較光碟與薄膜</td><td>辨認干涉來源；不混淆薄膜與光碟</td><td>3-3、3-4</td></tr>
+      <tr><td>單元結束</td><td>第3節 Q5；後測</td><td>證據支持波動性；能說明模型限制</td><td>3-5、總評量</td></tr>
+    </tbody></table></div>
+    <h3>基本資料與設計依據</h3>
+    <div class="def"><dl>
+      <dt>單元／科目</dt><dd>干涉與繞射；自然科學／物理；高一；3 節，每節 50 分鐘；前測與後測另行安排。</dd>
+      <dt>設計者</dt><dd>江長屹／台師大科教所；範例 v1.0／115.09.04。</dd>
+      <dt>教材檔案</dt><dd>三節學習單修訂版、離線教材、教師投影、13 頁紙本教科書及評量（原檔不在本資料夾；本網站為其線上整合版）。</dd>
+      <dt>實施條件</dt><dd>一般教室；兩人一機、個別作答。AI 與實體示範選用。</dd>
+      <dt>設計理念</dt><dd>先預測，再觀察，以證據修正解釋；由水波類比遷移至光。</dd>
+      <dt>核心理解</dt><dd>波在同處疊加可增強或減弱。光的干涉與繞射支持波動描述。</dd>
+      <dt>學生起點</dt><dd>已學直進、反射、折射與波的基本量；以前測辨識碰撞、相消等迷思。</dd>
+      <dt>範圍與限制</dt><dd>定性說明；不推公式或掃描參數。水波是類比，光學觀察才是光的證據。</dd>
+      <dt>學習表現</dt><dd>tr-Ⅴc-1 證據與因果；tm-Ⅴc-1 模型及限制；pc-Ⅴc-2 表達與討論。</dd>
+      <dt>學習內容</dt><dd>PKa-Ⅴc-3 光的理論；PKa-Ⅴc-5 干涉與繞射；PKa-Ⅴc-6 惠更斯原理。</dd>
+    </dl></div>
+    <div class="cond"><b>教學準備</b>　兩人一機、每人一份學習單；教師備投影、實拍與離線版，課前試播。<b>工具與 AI</b>　AI 僅追問：預測不揭答案、觀察不解釋，解釋階段才查核證據；不代答。本網站以「提示階梯」實作此規則。<b>替代方案</b>　無設備用紙本圖卡與備援頁，仍先預測再揭圖；AI 未啟用時由教師追問。</div>
+    <h3>附件與交付</h3>
+    <div class="tw"><table><thead><tr><th>附件</th><th>用途</th><th>來源授權</th><th>本網站</th></tr></thead><tbody>
+      <tr><td>修訂版學習單、13 頁紙本教科書</td><td>三節作答與概念整理</td><td>自製；照片另註來源</td><td>各節學習單、總學習單、主要概念頁</td></tr>
+      <tr><td>三節離線版、投影與備援頁</td><td>模擬、揭圖與備援</td><td>自製；照片依原授權</td><td>本網站可離線執行的模擬與實拍頁</td></tr>
+      <tr><td>前後測與隨堂測驗、AI 引導規範</td><td>評量與 AI 回應界線</td><td>本教材自製</td><td>課前暖身、各節小測、總評量、提示階梯</td></tr>
+      <tr><td>雙狹縫、繞射與薄膜實拍</td><td>真實觀察與來源查核</td><td>各作者，授權見清單</td><td>2-2、3-1、3-3、3-4、3-5；授權見封底</td></tr>
+    </tbody></table></div>
+    <div class="cond"><b>交付檢核（課前確認）</b>　□ 題號與版本一致　□ 實拍來源可查　□ 離線與備援可開啟　□ 時間可行　□ AI 回應符合階段　□ 選用實驗已完成安全檢查</div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-t-cards" data-ch="5" data-title="核心教學題目卡" data-teacher tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">教師專區</span><h2>核心教學題目卡</h2><p class="lede">文件05 的 7 張題卡。答案要素、常見迷思及成功規準供教師判讀；學生版只看到題目與引導提問。<span class="src">05</span></p></div>
+    <div class="def"><dl>
+      <dt>主要學習目標</dt><dd>能以波的疊加解釋光的雙狹縫干涉與單狹縫繞射，並定性說明光支持波動性；能區分真實證據與模型，說明波動描述的適用範圍。</dd>
+      <dt>內容範圍</dt><dd>處理七個可評量知識節點，以觀察、比較與定性解釋為主；不要求條紋間距、膜厚公式推導、參數掃描或光的全部性質。</dd>
+      <dt>題目配置</dt><dd>共 7 題：第1節 2 題、第2節 2 題、第3節 3 題。功能：概念建構、先備診斷、證據判讀、模型解釋、遷移應用、統整反思。階段：導入／預測、探索／觀察、解釋／論證、應用／評量。</dd>
+      <dt>學生證據</dt><dd>文字、圖像／圖表、數據／實驗、模型／作品；以學習單文字、預測修訂及觀察紀錄保存，並註明證據來源。</dd>
+      <dt>題目來源</dt><dd>原資料夾「干涉與繞射 核心教學題目 原始完整版備份」，七題沿用原識別碼。使用對象皆為師生共用。</dd>
+    </dl></div>
+    <details class="card-t" open><summary>題1　第1節 預測與解釋｜概念建構與迷思診斷　→ 本書 1-0～1-4、1-9</summary><div class="cb">
+      <p><b>學習目標</b>　能以同一位置、同一時刻的位移代數和判斷合成結果，並說明兩波通過後的狀態。</p>
+      <p><b>知識節點</b>　波的疊加原理、質點位移、合成波、建設性／破壞性疊加</p>
+      <p><b>核心問題</b>　兩列波在同一位置相遇時，合成位移如何決定？兩列波通過彼此後又會發生什麼？</p>
+      <p><b>預期證據</b>　相遇前、完全重疊、通過後三個代表時刻；同向與等大反向兩組繩波畫面；學生的合成波預測圖與修訂圖。保存：學習單的預測、修訂與文字解釋；標明觀察或模型來源。</p>
+      <p><b>答案要素</b>　須以同一位置、同一時刻的分波位移作代數相加；同向位移使合成位移增大，反向位移使合成位移減小，等大反向時瞬時合成位移可為零。重疊只發生於相遇期間，在理想線性介質中，兩列波通過後仍各自依原方向傳播。</p>
+      <p><b>常見迷思</b>　把波相遇視為物體碰撞而反彈、黏住或消失；把瞬時合成位移為零說成兩列波或總能量永久消失；只寫「相加」卻未指明同一位置與同一時刻。</p>
+      <div class="lvl"><b>達成</b><span>能畫出或敘述兩組代表案例的合成結果，明確使用位移代數和，並說明通過後各自傳播。</span><b>發展中</b><span>能判斷增強或減弱，但缺少位置、時刻條件，或未交代通過後狀態。</span><b>待支持</b><span>將兩波說成互撞反彈、永久合併或消失，或把相消解釋為能量不存在。</span></div>
+    </div></details>
+    <details class="card-t"><summary>題2　第1節 觀察與解釋｜現象解釋與證據判讀　→ 本書 1-6～1-9</summary><div class="cb">
+      <p><b>學習目標</b>　能依一段時間的起伏紀錄辨認腹線與節線，並解釋其位置穩定的原因。</p>
+      <p><b>知識節點</b>　同調波源、雙點波源干涉、腹線、節線、振幅與瞬時位移</p>
+      <p><b>核心問題</b>　兩個同相點波源為什麼會形成位置穩定的腹線與節線，而不是隨機斑塊或另一組向外傳播的波？</p>
+      <p><b>預期證據</b>　同一位置在一個週期內的起伏紀錄、3D 水面與俯視圖的對照、振幅最大與接近不動位置的選點紀錄。不得只用單一時刻的顏色或光影判斷。保存：選點、起伏紀錄及文字解釋，並註明實驗或模型。</p>
+      <p><b>答案要素</b>　兩波源同頻率且相位關係固定，使固定位置的到達相位差保持穩定。同相到達時振幅增大；反相到達時振幅減小，觀察處等振幅時才完全相消。振幅極大或極小的位置連成腹線、節線；這些線不是向外移動的波前。判讀須看一段時間的起伏。</p>
+      <p><b>常見迷思</b>　只把波峰交點當成建設性干涉；以亮色等同腹線、暗色等同節線；認為節線必定在真實水槽中完全靜止；把腹線或節線畫成向外傳播的圓形波。</p>
+      <div class="lvl"><b>達成</b><span>能從一段時間的振幅紀錄指出腹線與節線，並用固定到達關係、位移疊加與線狀分布完成因果鏈。</span><b>發展中</b><span>能辨認腹線、節線或建設性、破壞性干涉，但未說明為何位置穩定或未區分振幅與瞬時位移。</span><b>待支持</b><span>只依顏色、單張截圖或波峰交點判斷，或把干涉線當成波前。</span></div>
+    </div></details>
+    <details class="card-t"><summary>題3　第2節 預測與觀察｜認知衝突與模型診斷　→ 本書 2-1、2-2、2-8</summary><div class="cb">
+      <p><b>學習目標</b>　能比較直進模型的預測與真實屏幕特徵，提出修正模型的理由。</p>
+      <p><b>知識節點</b>　雙狹縫屏幕圖樣、證據來源、模型比較、光的波動性</p>
+      <p><b>核心問題</b>　如果光只沿直線前進，雙狹縫後的屏幕應出現什麼？實際觀察到的多條規律亮暗紋，如何迫使我們修正原來的模型？</p>
+      <p><b>預期證據</b>　教師現場雷射示範、可信實拍或影片中的完整屏幕亮度分布；至少指出中央、左右排列或明暗交替等可回查特徵。波前弧線與理想亮度圖只能作模型，不作主要實驗證據。保存：第2節學習單 Q1–Q3，保留資料來源、原預測與比較理由。</p>
+      <p><b>答案要素</b>　在本活動的近似平行入射及單純幾何直進模型下，預期為兩條狹縫的投影；它無法說明實際屏幕多條明暗交替的分布。指出可回查的觀察與預測之差異，再引入能描述光波展開、重疊、增強與減弱的模型。</p>
+      <p><b>常見迷思</b>　把兩條狹縫本身畫成屏幕圖樣；以理想模擬取代真實觀察；只寫「因為光是波」而未指出直進模型失效的具體證據。</p>
+      <div class="lvl"><b>達成</b><span>能分別表達原模型的預測與實際屏幕特徵，指出兩者矛盾，並說明為何需引入波動模型。</span><b>發展中</b><span>知道屏幕有多條亮暗紋，但沒有清楚比較原預測，或未標示證據來源。</span><b>待支持</b><span>仍以兩條狹縫影像解釋整個圖樣，或把模擬波前當成肉眼直接看到的證據。</span></div>
+    </div></details>
+    <details class="card-t"><summary>題4　第2節 解釋｜機制解釋與證據論證　→ 本書 2-3～2-8</summary><div class="cb">
+      <p><b>學習目標</b>　能連結相干次波源、相位關係與光波疊加，說明亮紋及暗紋。</p>
+      <p><b>知識節點</b>　惠更斯原理、相干次波源、建設性／破壞性干涉、時間平均光強度</p>
+      <p><b>核心問題</b>　兩道狹縫為什麼可以視為兩個相干次波源？兩列光波如何在屏幕上形成亮紋與暗紋？</p>
+      <p><b>預期證據</b>　真實屏幕中的亮暗分布作為現象證據；惠更斯波前、兩狹縫次波源與 B 亮／D 暗位置模型作為機制說明。保存：第2節學習單 Q4、Q6；分別標示現象證據與解釋模型。</p>
+      <p><b>答案要素</b>　在惠更斯觀點下，窄縫可近似為次波源；同一束相干單色光照明，使兩狹縫的出射波同頻率且相位差固定。在同偏振的討論下，同相到達使時間平均光強較大；反相到達使光強減小，觀察處等振幅時理想光強為零。暗紋不是沒有光波到達。</p>
+      <p><b>常見迷思</b>　把暗紋說成沒有光到達；把水波模擬當成光的實驗證據；把波前圓弧當作可見光路；混淆瞬時振動與屏幕時間平均光強度。</p>
+      <div class="lvl"><b>達成</b><span>能完整連結惠更斯原理、兩個相干次波源、相位關係、干涉結果與屏幕亮度，並區分真實證據與模型。</span><b>發展中</b><span>能寫出同相亮、反相暗，但未說明次波源由來、光強度或證據地位。</span><b>待支持</b><span>把亮暗解釋成狹縫影像、遮擋或有無光到達，或把模型圖當作實拍。</span></div>
+      <p class="msg">條件核對：<a href="https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference" target="_blank" rel="noopener">OpenStax University Physics 3 §3.1</a></p>
+    </div></details>
+    <details class="card-t"><summary>題5　第3節 觀察與解釋｜跨現象比較與概念遷移　→ 本書 3-1、3-2、3-6</summary><div class="cb">
+      <p><b>學習目標</b>　能比較兩種代表性圖樣與次波源分布，並指出共同的疊加原理。</p>
+      <p><b>知識節點</b>　單狹縫繞射、雙狹縫干涉、離散／連續次波源分布、圖樣比較</p>
+      <p><b>核心問題</b>　雙狹縫干涉與單狹縫繞射的屏幕圖樣不同，為什麼仍可以用同一個次波疊加原理解釋？</p>
+      <p><b>預期證據</b>　比較教材的遠場代表性實拍：描述單狹縫中央亮紋相對其旁側亮紋的寬度與強弱，以及雙狹縫中央附近的明暗排列；次波源示意用於機制解釋。保存：兩種真實圖樣的文字比較及次波源解釋，註明素材來源。</p>
+      <p><b>答案要素</b>　兩者皆可由次波疊加說明。窄雙縫近似為兩個分立次波源；單縫內有連續分布的次波源，因此可形成不同的明暗分布。均勻照明的單縫遠場圖樣中，中央亮紋比自身旁側亮紋寬且亮，旁側峰值向外減弱；雙縫中央附近明暗交替。不直接斷言不同裝置的中央寬度大小。</p>
+      <p><b>常見迷思</b>　把單狹縫圖樣當成狹縫的放大影像；認為繞射與干涉是兩套毫無關聯的原理；只說光彎曲而未交代次波源分布與疊加。</p>
+      <div class="lvl"><b>達成</b><span>能同時描述主要圖樣差異、次波源分布差異與共同的疊加機制。</span><b>發展中</b><span>能描述圖樣或次波源其中一項，但未建立兩者的因果連結。</span><b>待支持</b><span>仍使用幾何投影解釋，或把干涉與繞射視為完全不同機制。</span></div>
+      <p class="msg">條件核對：<a href="https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction" target="_blank" rel="noopener">OpenStax University Physics 3 §4.1</a></p>
+    </div></details>
+    <details class="card-t"><summary>題6　第3節 生活應用｜生活情境遷移　→ 本書 3-3、3-4</summary><div class="cb">
+      <p><b>學習目標</b>　能指出薄膜上、下界面的兩路反射光，以干涉定性解釋色彩。</p>
+      <p><b>知識節點</b>　薄膜干涉、上／下界面反射光、反射光疊加、生活遷移</p>
+      <p><b>核心問題</b>　透明薄膜沒有彩色顏料，為什麼仍會出現彩色區帶？到達眼睛的是哪兩路光？</p>
+      <p><b>預期證據</b>　肥皂膜、肥皂泡或油膜的真實彩色現象；薄膜剖面中上表面直接反射光，以及進入薄膜後由下表面反射返回的光。保存：薄膜觀察來源與兩路反射光的文字說明。</p>
+      <p><b>答案要素</b>　白光照膜後，一路由上表面直接反射；另一路進入薄膜，由下表面反射後穿出上表面。兩路光在觀察方向重疊干涉，使不同波長受到不同程度的增強或減弱。教師掌握：相位差涉及光程及反射相位變化。本題只評量兩路反射光與定性干涉，不要求膜厚或顏色計算。</p>
+      <p><b>常見迷思</b>　把顏色歸因於顏料或只歸因於折射；只記得「薄膜干涉」名詞，卻無法指出兩路反射光；要求超出本單元範圍的膜厚公式或特定顏色計算。</p>
+      <div class="lvl"><b>達成</b><span>能指出兩路反射光，說明它們重疊干涉並造成不同波長增強或減弱；不把顏色歸因於色素。</span><b>發展中</b><span>能判斷為干涉，但未完整指出兩路反射光或只寫名詞。</span><b>待支持</b><span>只以顏料或折射解釋，或無法辨認上、下界面的反射路徑。</span></div>
+      <p class="msg">條件核對：<a href="https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films" target="_blank" rel="noopener">OpenStax University Physics 3 §3.4</a></p>
+    </div></details>
+    <details class="card-t"><summary>題7　第3節 統整評量｜跨現象統整與科學論證　→ 本書 3-5、總評量第14題</summary><div class="cb">
+      <p><b>學習目標</b>　能引用兩項真實光學觀察支持波動描述，並說明此結論的界限。</p>
+      <p><b>知識節點</b>　模型判別、證據地位、光的波動性、模型適用範圍</p>
+      <p><b>核心問題</b>　雙狹縫干涉與單狹縫繞射如何共同支持光具有波動行為？這項結論的適用範圍是什麼？</p>
+      <p><b>預期證據</b>　雙狹縫後多條明暗交替的實拍；單狹縫遠場中央亮紋較自身旁側亮紋寬、旁側較弱的實拍。兩項均須有可回查來源。保存：統整短文，列出兩項觀察來源、推論與適用範圍。</p>
+      <p><b>答案要素</b>　兩項觀察都需要能展開、疊加並在不同位置增強或減弱的波動描述。單純直進模型既未預測完整圖樣，也無法同時解釋亮暗交替與幾何陰影區中的展開。兩項證據共同支持光在這些情境中具有波動行為；這不等於單靠本單元已完整說明光的全部性質。</p>
+      <p><b>常見迷思</b>　只寫「因為光是波」而沒有證據與比較；把水波或模擬當成支持光的主要實證；過度宣稱波動模型已解釋光的一切，或提前延伸到本單元未處理的內容。</p>
+      <div class="lvl"><b>達成</b><span>能列出兩項真實光學證據、比較直進與波動模型的解釋力，並清楚寫出論證界限。</span><b>發展中</b><span>能指出干涉或繞射其中一項支持波動性，但證據不完整、缺少模型比較或界限。</span><b>待支持</b><span>只重述結論、使用模擬作主要證據，或作出超出本單元證據範圍的宣稱。</span></div>
+    </div></details>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-t-blueprint"data-ch="5" data-title="評量雙向細目表" data-teacher tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">教師專區</span><h2>評量雙向細目表</h2><p class="lede">依課綱「科學認知」六層次；交叉格為題號，每題只歸類一次。<span class="src">06</span></p></div>
+    <div class="row" data-tabs>
+      <button type="button" class="btn" data-tab="pre" aria-pressed="true">前測</button>
+      <button type="button" class="btn ghost" data-tab="quiz" aria-pressed="false">隨堂第3節</button>
+      <button type="button" class="btn ghost" data-tab="post" aria-pressed="false">後測</button>
+    </div>
+    <div data-panel="pre"><p class="msg">教學前 25～30 分；14 題／30 分；不列平時成績。</p><div class="tw"><table><thead><tr><th>學習目標</th><th class="c">記憶</th><th class="c">了解</th><th class="c">應用</th><th class="c">分析</th><th class="c">評鑑</th><th class="c">創造</th><th class="c">題數</th><th class="c">配分</th><th class="c">占比</th></tr></thead><tbody>
+      <tr><td>運用疊加並說明通過後狀態</td><td class="c">—</td><td class="c">1</td><td class="c">2、7</td><td class="c">10</td><td class="c">—</td><td class="c">—</td><td class="c">4</td><td class="c">7</td><td class="c">23.3%</td></tr>
+      <tr><td>解釋同調與穩定水波干涉</td><td class="c">—</td><td class="c">4</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">3.3%</td></tr>
+      <tr><td>判讀振幅與位移時間紀錄</td><td class="c">—</td><td class="c">3、8</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">2</td><td class="c">3</td><td class="c">10.0%</td></tr>
+      <tr><td>解釋雙狹縫次波與亮暗分布</td><td class="c">—</td><td class="c">5</td><td class="c">14</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">2</td><td class="c">6</td><td class="c">20.0%</td></tr>
+      <tr><td>判讀屏幕資料並比較預測</td><td class="c">—</td><td class="c">12</td><td class="c">—</td><td class="c">13</td><td class="c">—</td><td class="c">—</td><td class="c">2</td><td class="c">7</td><td class="c">23.3%</td></tr>
+      <tr><td>以繞射觀察評估直進模型</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">9</td><td class="c">—</td><td class="c">1</td><td class="c">2</td><td class="c">6.7%</td></tr>
+      <tr><td>辨認薄膜的兩路反射光</td><td class="c">—</td><td class="c">—</td><td class="c">11</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">3</td><td class="c">10.0%</td></tr>
+      <tr><td>查核 AI 回饋的證據來源</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">6</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">3.3%</td></tr>
+      <tr><th>合計</th><th class="c">0／0</th><th class="c">6／9</th><th class="c">4／11</th><th class="c">2／7</th><th class="c">2／3</th><th class="c">0／0</th><th class="c">14</th><th class="c">30</th><th class="c">100%</th></tr></tbody></table></div></div>
+    <div data-panel="quiz" hidden><p class="msg">第3節課後 10～12 分；7 題／15 分。本書 3-6 依此表命題。三節共 21 題／45 分，第1、2節分表不在資料夾內。</p><div class="tw"><table><thead><tr><th>學習目標</th><th class="c">記憶</th><th class="c">了解</th><th class="c">應用</th><th class="c">分析</th><th class="c">評鑑</th><th class="c">創造</th><th class="c">題數</th><th class="c">配分</th><th class="c">占比</th></tr></thead><tbody>
+      <tr><td>指出單狹縫圖樣特徵</td><td class="c">1</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">6.7%</td></tr>
+      <tr><td>區分兩種狹縫的次波源分布</td><td class="c">—</td><td class="c">2</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">6.7%</td></tr>
+      <tr><td>說明透明薄膜色彩的成因</td><td class="c">—</td><td class="c">3</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">6.7%</td></tr>
+      <tr><td>辨識單雙狹縫亮度曲線</td><td class="c">—</td><td class="c">4</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">2</td><td class="c">13.3%</td></tr>
+      <tr><td>評估直進模型的解釋限制</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">5</td><td class="c">—</td><td class="c">1</td><td class="c">4</td><td class="c">26.7%</td></tr>
+      <tr><td>以反射光相位判斷波長強弱</td><td class="c">—</td><td class="c">—</td><td class="c">6</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">3</td><td class="c">20.0%</td></tr>
+      <tr><td>評析只用折射解釋色彩的不足</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">7</td><td class="c">—</td><td class="c">1</td><td class="c">3</td><td class="c">20.0%</td></tr>
+      <tr><th>合計</th><th class="c">1／1</th><th class="c">3／4</th><th class="c">1／3</th><th class="c">0／0</th><th class="c">2／7</th><th class="c">0／0</th><th class="c">7</th><th class="c">15</th><th class="c">100%</th></tr></tbody></table></div></div>
+    <div data-panel="post" hidden><p class="msg">三節課後 25～30 分；14 題／30 分。本書「總評量」依此表命題。</p><div class="tw"><table><thead><tr><th>學習目標</th><th class="c">記憶</th><th class="c">了解</th><th class="c">應用</th><th class="c">分析</th><th class="c">評鑑</th><th class="c">創造</th><th class="c">題數</th><th class="c">配分</th><th class="c">占比</th></tr></thead><tbody>
+      <tr><td>運用疊加並說明通過後狀態</td><td class="c">—</td><td class="c">1</td><td class="c">2、7</td><td class="c">10</td><td class="c">—</td><td class="c">—</td><td class="c">4</td><td class="c">7</td><td class="c">23.3%</td></tr>
+      <tr><td>判讀同調條件與水波干涉</td><td class="c">—</td><td class="c">4</td><td class="c">8</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">2</td><td class="c">3</td><td class="c">10.0%</td></tr>
+      <tr><td>說明雙狹縫相干次波源</td><td class="c">—</td><td class="c">5</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">3.3%</td></tr>
+      <tr><td>區分瞬時位移與振幅</td><td class="c">—</td><td class="c">3</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">3.3%</td></tr>
+      <tr><td>比較單雙縫圖樣與次波源分布</td><td class="c">—</td><td class="c">9、12</td><td class="c">—</td><td class="c">13</td><td class="c">—</td><td class="c">—</td><td class="c">3</td><td class="c">9</td><td class="c">30.0%</td></tr>
+      <tr><td>解釋薄膜反射光與色彩</td><td class="c">—</td><td class="c">—</td><td class="c">11</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">1</td><td class="c">3</td><td class="c">10.0%</td></tr>
+      <tr><td>評析波動證據與模型界限</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">14</td><td class="c">—</td><td class="c">1</td><td class="c">5</td><td class="c">16.7%</td></tr>
+      <tr><td>查核 AI 回饋的證據來源</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">—</td><td class="c">6</td><td class="c">—</td><td class="c">1</td><td class="c">1</td><td class="c">3.3%</td></tr>
+      <tr><th>合計</th><th class="c">0／0</th><th class="c">6／9</th><th class="c">4／8</th><th class="c">2／7</th><th class="c">2／6</th><th class="c">0／0</th><th class="c">14</th><th class="c">30</th><th class="c">100%</th></tr></tbody></table></div></div>
+    <p class="msg">層次提示：記憶＝回想事實；了解＝解釋概念；應用＝運用原理；分析＝拆解關係；評鑑＝依標準判斷；創造＝提出新方案。依主要作答歷程分類，不以題型或難度判定。占分比＝該列配分 ÷ 該份評量總分 × 100%。</p>
+    <p class="msg">層次依據：教育部《十二年國民基本教育課程綱要－自然科學領域》表二（第9頁）。核對：前、後測各 14 題／30 分，無重複遺漏；占分比進位後合計 99.9%（隨堂 100.1%），原始比例皆為 100%。題目來源：干涉與繞射前測、隨堂測驗第3節、後測及教師附錄。命題教師、審題教師姓名與日期待填。</p>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-t-assets" data-ch="5" data-title="多模態素材與需求腳本" data-teacher tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">教師專區</span><h2>多模態素材與需求腳本</h2><p class="lede">文件07A 素材清單（依原清單 2026-09-02 整理）與文件07B 需求腳本，對照本網站的實作。原素材檔不在本資料夾，路徑保留以便教師對照原教材包。<span class="src">07A</span><span class="src">07B</span></p></div>
+    <h3>互動模擬</h3>
+    <div class="tw"><table><thead><tr><th>原素材</th><th>知識節點與用途</th><th>使用需求與來源</th><th>本網站</th></tr></thead><tbody>
+      <tr><td>波的疊加拷貝.html</td><td>第1節：同一位置、同一時刻的位移代數和。先預測再操作，觀察重疊及通過後狀態。可調脈衝高度、寬度與位置。</td><td>瀏覽器 Canvas；Tailwind 需網路。自製 HTML／Canvas。</td><td>1-3 繩波疊加模擬（依 07B 規格，免網路）</td></tr>
+      <tr><td>水波的干涉繞射拷貝.html</td><td>第1節：雙波源干涉與節線、腹線。可調波源距離、振幅、頻率及速度；法拉第波僅作延伸。</td><td>WebGL；Three.js、OrbitControls 需網路；音效需授權。整合既有模擬。</td><td>1-6 水波干涉（俯視圖＋位移紀錄＋腹線節線）</td></tr>
+      <tr><td>光的干涉拷貝.html</td><td>第2節：在實拍證據後解釋雙狹縫條紋；調整波長、縫距與屏距，比較亮暗位置。可切換單色／白光。</td><td>Canvas；Tailwind、MathJax、字型需網路。</td><td>2-4 雙狹縫模擬（波長、縫距、屏距、白光）</td></tr>
+      <tr><td>薄膜干涉拷貝.html</td><td>第3節：薄膜上下界面的兩路反射光與增強／減弱；可調波長及膜厚，數值與相位差作延伸。</td><td>Canvas；Tailwind 需網路。</td><td>3-3 薄膜模擬（膜厚、反射光譜、直立肥皂膜）</td></tr>
+    </tbody></table></div>
+    <p class="msg">共通需求：可嵌入平台或另頁開啟；完全離線需先處理外部套件。原 HTML 未含 AI 回饋與操作紀錄；可用關鍵畫面作備援。本網站的模擬不需外部套件，並記錄主要操作。</p>
+    <h3>圖片素材</h3>
+    <div class="tw"><table><thead><tr><th>原檔（圖片與照片/）</th><th>用途</th><th>來源</th><th>本網站</th></tr></thead><tbody>
+      <tr><td>封面/封面_紙本13頁.png、干涉與繞射_封面主視覺.png</td><td>紙本封面、章首或投影開場；不作概念證據</td><td>自製</td><td>封面改為程式生成的雙狹縫亮度示意</td></tr>
+      <tr><td>第1節/水波干涉_3D關鍵畫面.png</td><td>觀察與解釋；模型畫面，非真實水槽證據</td><td>模擬截圖</td><td>1-6 水波模擬</td></tr>
+      <tr><td>第1節/繩波_兩種完全重疊比較.png</td><td>疊加原理說明與修訂預測</td><td>自製</td><td>1-2 比較圖（取自 07B）</td></tr>
+      <tr><td>第1節/繩波相遇前_自製題圖.png、雙點波源AB點_自製題圖.png</td><td>Q1 預測；比較 A、B 振幅與節腹判斷</td><td>自製</td><td>1-0 題圖、1-6 的 A／B 點</td></tr>
+      <tr><td>第2節/惠更斯原理_示意圖解說.png、紙本教材用/惠更斯原理_關鍵畫面.png</td><td>連結狹縫與次波源模型</td><td>自製</td><td>2-3 惠更斯動畫</td></tr>
+      <tr><td>真實實驗照片/光凳器材組、光凳實際架設</td><td>實驗前器材辨認與空間配置</td><td>Waifer X／Cuesta College CC BY 2.0；Cantons-de-l'Est CC BY-SA 4.0</td><td>2-2 嵌入照片</td></tr>
+      <tr><td>真實實驗照片/雙狹縫干涉_紅光實拍</td><td>632.8 nm 紅光雙狹縫實拍；主要證據，先於理想模型呈現</td><td>Bryan Tong Minh，Public Domain</td><td>2-2、3-5 嵌入照片</td></tr>
+      <tr><td>紙本教材用/雙狹縫_亮暗條紋_BD.png、雙狹縫次波模型_自製題圖.png</td><td>同相／反相到達與亮暗位置；區分證據與模型</td><td>自製理想模型</td><td>2-5 B／D 互動模型</td></tr>
+      <tr><td>雙狹縫實驗架設_空間位置示意.svg（含紙本 png）、雙狹縫裝置_預測題圖.png</td><td>只呈現器材位置，不畫光線；保留直進模型的預測</td><td>自製</td><td>2-1 架設示意與預測畫板</td></tr>
+      <tr><td>第3節/單狹縫繞射_實拍_文件用.png、真實照片/單狹縫繞射_藍光雷射</td><td>觀察主要證據；與理想圖樣並列比較</td><td>Xyqorophibian，CC BY-SA 4.0</td><td>3-1、3-5 嵌入照片</td></tr>
+      <tr><td>單狹縫繞射_理想圖樣.png、雙狹縫與單狹縫_次波源分布.png</td><td>解釋，不得取代實拍；比較共同原理</td><td>自製</td><td>3-1 單狹縫模擬、3-2 比較圖</td></tr>
+      <tr><td>單狹縫實驗架設_空間位置示意.svg（含紙本 png）、可調式單狹縫器</td><td>示範前說明；照片尺度不代表課堂狹縫尺度</td><td>自製；Jan Krieger CC BY-SA 3.0</td><td>3-1 嵌入照片</td></tr>
+      <tr><td>薄膜干涉_實拍與剖面.png、肥皂泡、肥皂膜、油膜</td><td>區分真實現象與機制模型；膜厚不均與色彩</td><td>剖面自製；照片依原授權</td><td>3-3 照片與剖面圖</td></tr>
+      <tr><td>生活中的干涉與繞射_實拍.png、光碟、牛頓環、抗反射鏡片、望遠鏡尖峰、孔雀羽毛、藍閃蝶</td><td>概念遷移與現象分類；光碟歸週期結構繞射；結構色可能涉及干涉、繞射與散射；尖峰不是恆星真實外形</td><td>依各照片原授權</td><td>3-4 分類活動（望遠鏡尖峰因下載受限暫為外連）</td></tr>
+    </tbody></table></div>
+    <h3>07B 需求腳本與實作對照</h3>
+    <div class="tw"><table><thead><tr><th>腳本</th><th>需求重點</th><th>本網站</th></tr></thead><tbody>
+      <tr><td>圖片：同向與反向脈衝完全重疊比較圖</td><td>左右並列、上區分波 A（細實線）B（虛線）、下區合成繩形（粗實線）；共用刻度與 P 點；白底黑線、橫式 2∶1、2400×1200 PNG；附一句說明</td><td>1-2 使用 07B 已輸出的比較圖</td></tr>
+      <tr><td>動畫：兩個脈衝相遇（5 鏡、36 秒）</td><td>旁白同時作字幕、無配樂；相消後連續播到通過；「新案例」先標明再切換；停格註明教學定格；MP4 1920×1080 16∶9，附字幕檔</td><td>1-1 以程式即時播放的 36 秒動畫，含字幕、時間軸與鏡頭跳轉</td></tr>
+      <tr><td>模擬：可調脈衝高度的疊加模擬</td><td>A、B 高度 −1.5～+1.5、步進 0.1；全寬 20%、波速每秒 5%、起始 25%／75%、刻度 −3～+3、P 在 50%（程式固定）；播放、暫停、切換案例、重設；離線 HTML，附三張靜態圖</td><td>1-3 依上述規格實作（07B 原註「尚未實作」）</td></tr>
+    </tbody></table></div>
+    <div class="story">
+      <figure><img class="photo" src="img/shot01.png" alt="07B 鏡頭01 分鏡草圖"><figcaption>01 · 0–6 秒　在理想線性介質中，兩個相同脈衝正相向傳播。</figcaption></figure>
+      <figure><img class="photo" src="img/shot02.png" alt="07B 鏡頭02 分鏡草圖"><figcaption>02 · 6–14 秒　同一位置的位移相加。同向重疊時，這裡的合成位移變大。</figcaption></figure>
+      <figure><img class="photo" src="img/shot03.png" alt="07B 鏡頭03 分鏡草圖"><figcaption>03 · 14–20 秒　通過之後，兩個脈衝仍各自向原方向傳播。</figcaption></figure>
+      <figure><img class="photo" src="img/shot04.png" alt="07B 鏡頭04 分鏡草圖"><figcaption>04 · 20–28 秒　改成等大反向時，位移抵銷，完全重疊當下合成位移為零。</figcaption></figure>
+      <figure><img class="photo" src="img/shot05.png" alt="07B 鏡頭05 分鏡草圖"><figcaption>05 · 28–36 秒　零位移只描述這一瞬間；不代表波或能量永久消失。</figcaption></figure>
+    </div>
+    <figure><img class="photo" src="img/sim-ui-sketch.png" alt="07B 模擬介面草圖：分波、合成繩形、脈衝高度滑桿與播放按鈕" style="max-width:34rem"><figcaption>07B 模擬介面草圖：①②波形顯示、③學生操作、④⑤唯讀資訊。容易誤解處：負值表示脈衝向下，不稱「負振幅」；分波線不是三條實體繩子。</figcaption></figure>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-t-support" data-ch="5" data-title="學習困難與引導策略" data-teacher tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">教師專區</span><h2>學習困難與引導策略</h2><p class="lede">文件10：選列 5 項困難；學生語句為情境示範，非實測紀錄。一次給一層提示，依學生回應調整。設計者：江長屹／115.09.04；共 3 節，含課後修訂。<span class="src">10</span></p></div>
+    <p class="cond"><b>學習重點</b>　辨識波的疊加，區分實拍與模型，並用證據說明光的干涉與繞射。</p>
+    <div class="tw"><table><thead><tr><th>節次／困難</th><th>學生表現</th><th>引導方式</th><th>改善判準</th><th>本網站</th></tr></thead><tbody>
+      <tr><td>第1節　波像物體碰撞</td><td>「兩個波撞到後，會一起彈回去。」</td><td>追蹤同一脈衝，比較相遇、重疊及通過後。</td><td>能指出通過後仍沿原方向傳播。</td><td>1-4 引導提問＋提示階梯</td></tr>
+      <tr><td>第1節　位移等於振幅</td><td>「這一刻是零，所以振幅是零。」</td><td>固定同一位置，觀察完整週期；比較瞬時位移與最大位移。</td><td>能以完整週期的最大位移判斷振幅。</td><td>1-5 振動模擬＋引導提問</td></tr>
+      <tr><td>第2節　暗紋等於無光</td><td>「D 點是暗的，所以沒有光到達。」</td><td>先看兩狹縫到 D 的路徑，再比較到達時的振動關係。</td><td>能連結兩路到達、反相疊加與暗紋。</td><td>2-5 追問、2-6 引導提問</td></tr>
+      <tr><td>第2節　模型當成實拍</td><td>「照片裡的光沿圓弧前進。」</td><td>並列實拍與波前圖，請學生標示來源及各圖能說明的事。</td><td>能區分亮度證據與模型線條。</td><td>2-6 引導提問與對照框</td></tr>
+      <tr><td>第3節　干涉繞射無關</td><td>「這兩個現象的原理完全不同。」</td><td>比較雙狹縫與單狹縫模型，找出次波源分布與疊加關係。</td><td>能指出共同疊加原理及次波源分布的差異。</td><td>3-2 引導提問＋提示階梯</td></tr>
+    </tbody></table></div>
+    <h3>單項引導表</h3>
+    <div class="tw"><table><thead><tr><th>範例</th><th>學生表現與學習重點</th><th>L1 釐清想法</th><th>L2 回看證據</th><th>L3 連結說明</th></tr></thead><tbody>
+      <tr><td>範例1 暗紋等於沒有光到達（第2節／學習單 Q4）</td><td>學生在 Q4 寫：「D 點沒有光到達，所以是暗的。」重點：區分兩路光各自到達，與疊加後的合成振幅及亮度。</td><td>你說「沒有光到達 D」，是根據哪項觀察？（Q4 初稿、雙狹縫紅光實拍）</td><td>在模型連出兩狹縫到 D 的路徑；兩路是否都能到達？（第2節次波模型、B 與 D 的位置）</td><td>D 點兩路光到達時的振動關係，如何影響合成振幅與亮度？（B／D 比較圖、學生修訂稿）</td></tr>
+      <tr><td>範例2 波相遇會反彈（第1節／學習單 Q1、Q2）</td><td>學生在 Q1 選「反彈」，認為兩個脈衝相遇後會倒退。重點：在理想線性介質中，區分重疊時的合成波形與通過後的傳播方向。</td><td>你預測脈衝會反彈，是根據什麼想法？（Q1 預測與理由）</td><td>追蹤同一脈衝的相遇前、重疊與通過後；它的傳播方向有改變嗎？（繩波模擬、Q2 三階段作圖）</td><td>依 Q2 的圖，你會如何修訂「相遇後會反彈」？（Q1 初稿、Q2 觀察紀錄）</td></tr>
+      <tr><td>範例3 干涉與繞射原理無關（第3節／活動一比較表）</td><td>學生說：「干涉和繞射的圖樣不同，所以原理完全不同。」重點：用次波疊加連結兩種現象，區分兩狹縫與單狹縫的次波源分布。</td><td>你認為原理不同，是根據兩張圖的哪個差異？（雙狹縫與單狹縫實拍、學生原說法）</td><td>在兩個模型標出次波源；它們各自如何分布？（活動一比較表、雙狹縫與單狹縫模型）</td><td>根據次波源與明暗紋，你會如何修訂「兩者原理無關」？（活動一比較表、學生修訂稿）</td></tr>
+    </tbody></table></div>
+    <p class="msg">設計參考：<a href="https://www.moe.gov.tw/News_Content.aspx?n=9E7AC85F1954DDA8&amp;s=2D60AD02820F68AD" target="_blank" rel="noopener">教育部診斷教學案例（2020）</a>、<a href="https://epaper.naer.edu.tw/edm?content_no=1697&amp;edm_no=63" target="_blank" rel="noopener">國教院自然科補充教材示例（2013）</a>。本表依教材需求自編，非教育部制式表單。</p>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-t-docs"data-ch="5" data-title="文件對照、數位規格與素材" data-teacher tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">教師專區</span><h2>文件對照、數位規格與素材</h2></div>
+    <div class="tw"><table><thead><tr><th>文件</th><th>在本書的位置</th><th>與其他文件的銜接</th></tr></thead><tbody>
+      <tr><td>01 核心教材文本</td><td>各主要概念頁的定義與「閱讀」段</td><td>節點01→第1節、02→第2節、03／04→第3節；「銜接依據」成為每節導入的「從哪裡來」</td></tr>
+      <tr><td>02 單元教案</td><td>全書骨架；各頁教師提示的流程；教學流程頁（基本資料、設計依據、目標、評量、附件與交付）</td><td>題號串起 03、05、06；CER 逐節修訂形成 2-0、3-0</td></tr>
+      <tr><td>03 學習單</td><td>第2節活動01–04（2-1、2-2、2-5、2-7）</td><td>Q4 為 08 數位化與 10 範例1 的對象</td></tr>
+      <tr><td>04 延伸資源</td><td>延伸學習頁；3-6 銜接</td><td>接在 01 的範圍界線（不推公式）之後</td></tr>
+      <tr><td>05 核心題目</td><td>各節小測、引導提問的迷思、教師提示中的規準；教師專區「核心教學題目卡」收錄 7 張完整題卡</td><td>依 02 節次配置；06 後測各列與題卡呼應</td></tr>
+      <tr><td>06 雙向細目表</td><td>課前暖身、3-6 隨堂測驗、總評量、細目表頁</td><td>前測對應 10 的困難；後測對應 05 題卡</td></tr>
+      <tr><td>07A 素材清單</td><td>嵌入的實拍照片與授權、各模擬的定位、生活應用分類；教師專區「多模態素材與需求腳本」收錄完整清單</td><td>為 02 各節活動供料；07B 是其中素材的製作需求</td></tr>
+      <tr><td>07B 需求腳本</td><td>1-1 動畫（依分鏡生成）、1-2 比較圖、1-3 模擬（依規格實作）</td><td>對應第1節 Q1–Q3；容易誤解處與 10 一致</td></tr>
+      <tr><td>08 數位整合規劃</td><td>2-5 的 B／D 模型、初稿→追問→修訂流程、作答紀錄匯出</td><td>素材取自 07A；追問以 10 範例1 實作</td></tr>
+      <tr><td>10 學習困難引導</td><td>引導提問、三組提示階梯、各頁困難表；教師專區「學習困難與引導策略」收錄完整速查與單項引導表</td><td>提示的對照材料指向 03 題號與 07A 素材</td></tr>
+    </tbody></table></div>
+    <h3>知識節點內容查核（文件01）</h3>
+    <p class="msg">01 的每個節點以「名詞與定義一致、因果或關係正確、適用條件完整、前後概念連貫、關鍵說法有依據」五項自我檢核，並於 2026-09-04 對照 OpenStax 查核。本網站的正文與成立條件逐字沿用。</p>
+    <div class="tw"><table><thead><tr><th>節點</th><th>核心理解</th><th>查核重點</th><th>依據</th><th>本網站</th></tr></thead><tbody>
+      <tr><td>01 波的疊加與水波干涉</td><td>理想線性介質中，合位移等於各波位移之和；固定位置的振幅取決於兩列波的振動關係。</td><td>線性疊加、波通過彼此、完全相消的條件</td><td><a href="https://openstax.org/books/university-physics-volume-1/pages/16-5-interference-of-waves" target="_blank" rel="noopener">Vol. 1 §16.5</a></td><td>1-2、1-5、1-6、1-7</td></tr>
+      <tr><td>02 雙狹縫干涉</td><td>兩列相干光波到達屏幕各處時的相位差不同，形成穩定的明暗條紋。</td><td>相干條件、次波源近似與明暗紋的形成</td><td><a href="https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference" target="_blank" rel="noopener">Vol. 3 §3.1</a></td><td>2-3、2-5</td></tr>
+      <tr><td>03 單狹縫繞射</td><td>縫內不同位置的次波在各方向增強或減弱，形成繞射的明暗分布。</td><td>遠場假設、次波疊加、中央亮紋與縫寬關係</td><td><a href="https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction" target="_blank" rel="noopener">Vol. 3 §4.1</a></td><td>3-1、3-2</td></tr>
+      <tr><td>04 薄膜干涉與單元統整</td><td>薄膜兩表面的反射光可發生干涉；薄膜色彩與狹縫明暗分布均可用光的波動模型解釋。</td><td>兩表面反射、反射相位及膜厚對干涉的影響</td><td><a href="https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films" target="_blank" rel="noopener">Vol. 3 §3.4</a></td><td>3-3、3-4、3-5</td></tr>
+    </tbody></table></div>
+    <h3>數位整合規劃（文件08）</h3>
+    <div class="def"><dl>
+      <dt>整合範圍</dt><dd>干涉與繞射／雙狹縫亮暗紋；高中物理高一；設計者江長屹，115.09.04；填寫示例 v1.0。只示範第2節 Q4，採教材內 AI 對話，列為待開發需求。</dd>
+      <dt>製作成品</dt><dd>學生網頁（單一活動）；筆電／平板瀏覽器；正文與模型可離線，AI 需連網。本網站將此規格擴充為三節完整網頁。</dd>
+      <dt>素材對照</dt><dd>T01 光的雙狹縫干涉實驗架構圖（正文、一句解釋）；M01 雙狹縫紅光實拍（真實證據，可放大、關閉）；M02 光的雙狹縫干涉動畫（播放、暫停、重置及選 B／D）；A01 AI 回應與診斷規範（限制追問、提示與教師接手）。</dd>
+      <dt>進入條件</dt><dd>先完成 Q1 至 Q3 及惠更斯原理閱讀，再進入解釋階段（本網站順序：2-1 → 2-2 → 2-3 → 2-4 → 2-5）。</dd>
+      <dt>AI 介入</dt><dd>教材內直接對話；Q4 完成後由學生點選「請 AI 追問」，可略過。帶入資料：Q4 原題、學生作答、操作紀錄、教材內容。每次 1 個主問題，最多 3 句；學生自行修訂。連續兩層提示仍卡同一錯誤、無證據或來源衝突時轉教師。</dd>
+      <dt>版面</dt><dd>桌面左右分區；窄螢幕依①至④上下排列，底部保留完成按鈕。切換素材保留作答；填完整才可問 AI；AI 可收合或略過。</dd>
+      <dt>交付項目</dt><dd>可執行教材、素材與原始檔、資料匯出、操作說明。保管人、保存期限與刪除方式由授課教師確認。</dd>
+      <dt>工程師回填</dt><dd>技術做法：靜態網站（HTML／CSS／JavaScript）部署於 GitHub Pages；作答暫存於瀏覽器 localStorage；匯出 JSON／CSV。待確認：可用 AI 服務、來源版本、共用設備清除流程（本網站提供「清除本機作答」）。</dd>
+    </dl></div>
+    <h3>數位活動 ACT01 驗收（文件08）</h3>
+    <figure><img class="white" src="img/act01-screen.png" alt="文件08 的 ACT01 畫面草圖" style="max-width:26rem"><figcaption>文件08 原畫面草圖：觀察教材 → 填寫初稿 → AI 追問 → 自行修訂。</figcaption></figure>
+    <div class="tw"><table><thead><tr><th>情境</th><th>預期結果</th><th>本書現況</th></tr></thead><tbody>
+      <tr><td>正常操作</td><td>實拍可放大；模型可播放、暫停、重置及選 B／D；切換素材不清除作答</td><td>符合（實拍以新分頁開啟）</td></tr>
+      <tr><td>Q4 未填完整</td><td>追問按鈕停用並提示；原稿仍可編輯</td><td>符合</td></tr>
+      <tr><td>索取答案／提示後仍卡住</td><td>一次一個主問題且不代答；連續兩層仍卡住轉教師</td><td>提示階梯用完顯示轉教師</td></tr>
+      <tr><td>斷網／逾時</td><td>正文與模型仍可用；已填回答保留</td><td>模擬全部本機運算；作答暫存於瀏覽器</td></tr>
+      <tr><td>重新開啟／下載資料</td><td>重新整理保留作答；下載含初稿與修訂，欄位可依 ACT01 及 Q4 對回</td><td>符合：可續作；總學習單可下載 JSON 與 CSV</td></tr>
+    </tbody></table></div>
+    <h3>整理時發現、需要確認的地方</h3>
+    <div class="tw"><table><thead><tr><th>項目</th><th>說明與處理</th></tr></thead><tbody>
+      <tr><td>03 的節次</td><td>表頭寫第3節，02、08 與內文指第2節；採第2節。</td></tr>
+      <tr><td>缺文件09</td><td>02、08 引用 AI 蘇格拉底式回應規範，不在資料夾；只用 08 已摘錄的規則。</td></tr>
+      <tr><td>第1、3節學習單、前後測原卷</td><td>不在資料夾；依 02 題號重建作答，總評量依 06 自編。</td></tr>
+      <tr><td>隨堂細目表</td><td>06 只有第3節分表；第1、2節小測依 05 題卡自編。</td></tr>
+      <tr><td>圖片素材</td><td>07A 圖檔資料夾不在此；07A 列出的實拍照片已自 Wikimedia Commons 下載縮圖嵌入（望遠鏡繞射尖峰暫為外連），授權見封底；其餘圖與動畫由本書程式生成，或取自 07B、08 內嵌圖。</td></tr>
+    </tbody></table></div>
+    <h3>查核依據與設計參考</h3>
+    <div class="links">
+      <a href="https://openstax.org/books/university-physics-volume-1/pages/16-5-interference-of-waves" target="_blank" rel="noopener">OpenStax Vol. 1 §16.5<small>節點01</small></a>
+      <a href="https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference" target="_blank" rel="noopener">OpenStax Vol. 3 §3.1<small>節點02</small></a>
+      <a href="https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction" target="_blank" rel="noopener">OpenStax Vol. 3 §4.1<small>節點03</small></a>
+      <a href="https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films" target="_blank" rel="noopener">OpenStax Vol. 3 §3.4<small>節點04</small></a>
+      <a href="https://cdn.serc.carleton.edu/files/NAGTWorkshops/video/isostasy_storyboard_draft_b.pdf" target="_blank" rel="noopener">SERC 地科動畫腳本<small>文件08 格式參考</small></a>
+      <a href="https://www.monash.edu/learning-teaching/teachhq/be-inspired/teaching-practice-examples/productville-pharmaceutical-science-case-studies" target="_blank" rel="noopener">Monash 教材案例<small>文件08 格式參考</small></a>
+      <a href="https://school.tc.edu.tw/open-message/064607/get-file/66d572f5b15de80d5c01b874" target="_blank" rel="noopener">數位教學指引 3.0 示例<small>文件08 格式參考</small></a>
+      <a href="https://www.moe.gov.tw/News_Content.aspx?n=9E7AC85F1954DDA8&amp;s=2D60AD02820F68AD" target="_blank" rel="noopener">教育部診斷教學案例（2020）<small>文件10 設計參考</small></a>
+      <a href="https://epaper.naer.edu.tw/edm?content_no=1697&amp;edm_no=63" target="_blank" rel="noopener">國教院自然科補充教材示例（2013）<small>文件10 設計參考</small></a>
+    </div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+<section class="page" id="p-back" data-ch="6"data-title="封底：來源與授權" tabindex="-1">
+  <div class="sheet">
+    <div class="ptitle"><span class="eyebrow">封底</span><h2>來源與授權</h2></div>
+    <p>本教材整合「02_已填寫參考範例」10 份示範文件（01 核心教材文本、02 單元教案、03 學習單、04 延伸資源、05 核心題目、06 雙向細目表、07A 素材清單、07B 需求腳本、08 數位整合規劃、10 學習困難引導）。</p>
+    <ul style="margin:0;padding-left:1.2rem">
+      <li>封面、動畫、模擬、示意圖：由本教材程式依波動模型即時生成，皆標示為「模型」或「示意」。</li>
+      <li>兩種完全重疊比較圖、動畫分鏡圖、ACT01 畫面草圖：取自文件07B、08。</li>
+      <li>實拍照片：取自 Wikimedia Commons，縮為寬約 1200 像素後嵌入，未做其他修改。版權屬原作者，依各自授權使用（CC BY-SA 照片的縮圖依同一授權提供）：
+        <div class="tw" style="margin-top:.4rem"><table><thead><tr><th>照片</th><th>作者</th><th>授權</th></tr></thead><tbody>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG" target="_blank" rel="noopener">紅光雙狹縫干涉</a></td><td>Bryan Tong Minh</td><td>Public Domain</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg" target="_blank" rel="noopener">藍光單狹縫繞射</a></td><td>Xyqorophibian</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Optical_Bench_educational_Kit_-_Cuesta_College.jpg" target="_blank" rel="noopener">光凳器材組</a></td><td>Waifer X／Cuesta College</td><td>CC BY 2.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg" target="_blank" rel="noopener">光凳實際架設</a></td><td>Cantons-de-l'Est</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Xy_adjustable_optical_slit.jpg" target="_blank" rel="noopener">可調式單狹縫器</a></td><td>Jan Krieger</td><td>CC BY-SA 3.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg" target="_blank" rel="noopener">肥皂泡</a></td><td>Pksois23</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg" target="_blank" rel="noopener">肥皂膜</a></td><td>Yaroslav Ulyushin</td><td>CC BY 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg" target="_blank" rel="noopener">油膜</a></td><td>gambier20</td><td>CC BY 2.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:CD_rainbow.jpg" target="_blank" rel="noopener">光碟虹彩</a></td><td>Hapecko</td><td>CC BY-SA 4.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Newton_rings.jpg" target="_blank" rel="noopener">牛頓環</a></td><td>Ulfbastel</td><td>Public Domain</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Reflective_and_anti-reflective_lens.jpg" target="_blank" rel="noopener">一般與抗反射鏡片</a></td><td>Maximilian Schönherr</td><td>CC0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg" target="_blank" rel="noopener">藍閃蝶</a></td><td>Alias 0591（Rene Mensen）</td><td>CC BY 2.0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:Peacock_feathers._(20779300743).jpg" target="_blank" rel="noopener">孔雀羽毛</a></td><td>Bernard Spragg. NZ</td><td>CC0</td></tr>
+          <tr><td><a href="https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg" target="_blank" rel="noopener">望遠鏡繞射尖峰</a>（外連）</td><td>ESA/Hubble &amp; NASA</td><td>CC BY 4.0</td></tr>
+        </tbody></table></div>
+        授權條款：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>、<a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a>、<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>、<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>、<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a>。</li>
+      <li>字型：Noto Sans TC、Noto Serif TC、IBM Plex Mono（Google Fonts，SIL Open Font License）。</li>
+    </ul>
+    <p class="msg">標示「模型」的圖用來解釋，不是實驗證據。</p>
+    <div class="row"><button type="button" class="btn" data-go="p-toc">回到目錄</button><button type="button" class="btn ghost" data-go="p-cover">回到封面</button></div>
+    <div class="pfoot"></div>
+  </div>
+</section>
+
+  </div></div>
+
+  <footer class="foot">
+    <div class="progress"><i id="prog"></i></div>
+    <button type="button" class="nav prev" id="prev" aria-label="上一頁">‹ <span>上一頁</span></button>
+    <div class="mid"><select id="jump" aria-label="跳到頁面"></select><span class="pn" id="pn"></span></div>
+    <button type="button" class="nav" id="next" aria-label="下一頁"><span>下一頁</span> ›</button>
+  </footer>
+</div>
+
+<div class="drawer" id="drawer" hidden role="dialog" aria-label="目錄">
+  <div class="panel">
+    <div class="row" style="justify-content:space-between"><h2>目錄</h2><button type="button" class="ibtn" id="tocClose">關閉</button></div>
+    <div class="toclist" id="toclist"></div>
+  </div>
+  <div class="scrim" id="scrim"></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-label="放大的照片">
+  <button type="button" id="lbClose">關閉</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<script src="book.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>
